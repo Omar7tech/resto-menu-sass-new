@@ -4,7 +4,7 @@ namespace App\Enums;
 use Filament\Support\Contracts\HasLabel;
 use Illuminate\Contracts\Support\Htmlable;
 use Filament\Support\Contracts\HasColor;
-enum UserRole: int implements HasLabel , HasColor
+enum UserRole: int implements HasLabel, HasColor
 {
     case ADMIN = 1;
     case CLIENT = 2;
@@ -23,7 +23,7 @@ enum UserRole: int implements HasLabel , HasColor
         return $this === self::ADMIN;
     }
 
-     public function getLabel(): string | Htmlable | null
+    public function getLabel(): string|Htmlable|null
     {
         return match ($this) {
             self::ADMIN => 'Admin',
@@ -32,7 +32,7 @@ enum UserRole: int implements HasLabel , HasColor
         };
     }
 
-     public function getColor(): string | array | null
+    public function getColor(): string|array|null
     {
         return match ($this) {
             self::ADMIN => 'danger',
