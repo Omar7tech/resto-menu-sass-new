@@ -10,6 +10,7 @@ use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Support\Enums\Width;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -18,25 +19,46 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use pxlrbt\FilamentEnvironmentIndicator\EnvironmentIndicatorPlugin;
+use Saade\Facehash\Enums\Variant;
+use Saade\FilamentFacehash\FacehashPlugin;
+use ShuvroRoy\FilamentSpatieLaravelHealth\FilamentSpatieLaravelHealthPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->default()
             ->id('admin')
             ->path('admin')
-            ->login()
             ->colors([
-                'primary' => Color::Amber,
-            ])
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
+                'primary' => Color::Violet,
+            ])->spa()
+            ->brandLogo(asset('logos/logo-on-light.png'))
+            ->darkModeBrandLogo(asset('logos/logo-on-dark.png'))
+            ->brandLogoHeight('2.5rem')
+            ->plugins([
+                FacehashPlugin::make()->size(10)
+                    ->variant(Variant::Solid)
+                    ->initial(true)
+                ,
+                FilamentSpatieLaravelHealthPlugin::make(),
+                EnvironmentIndicatorPlugin::make()->color(fn() => match (app()->environment()) {
+                    'production' => Color::Green,
+                    'local' => Color::Red,
+                })->showBorder(false)
+            ])->unsavedChangesAlerts()
+            ->sidebarWidth('15rem')
+            ->sidebarCollapsibleOnDesktop()
+            ->errorNotifications(false)
+            ->maxContentWidth(Width::Full)
+            ->login()
+            ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\Filament\Admin\Resources')
+            ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\Filament\Admin\Pages')
             ->pages([
                 Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
+            ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\Filament\Admin\Widgets')
             ->widgets([
                 AccountWidget::class,
                 FilamentInfoWidget::class,
