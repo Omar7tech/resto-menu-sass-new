@@ -11,7 +11,7 @@ use Spatie\Sluggable\SlugOptions;
 
 class Package extends Model
 {
-    use HasFactory, SoftDeletes, HasSlug;
+    use HasFactory, HasSlug;
 
     protected $fillable = [
         'slug',

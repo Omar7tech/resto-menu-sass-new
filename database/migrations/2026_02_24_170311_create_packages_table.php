@@ -24,10 +24,10 @@ return new class extends Migration {
             $table->boolean('can_edit_theme')->default(false);
             $table->boolean('remove_branding')->default(false);
             $table->boolean('featured')->default(false);
-            $table->decimal('yearly_price', 10, 2)->nullable();
+            $table->decimal('yearly_price', 10, 2);
             $table->decimal('discount_yearly_price', 10, 2)->nullable();
             $table->integer('sort')->default(0)->index();
-            $table->decimal('setup_fees', 10, 2)->nullable();
+            $table->decimal('setup_fees', 10, 2);
             $table->decimal('discount_setup_fees', 10, 2)->nullable();
             $table->timestamps();
         });
