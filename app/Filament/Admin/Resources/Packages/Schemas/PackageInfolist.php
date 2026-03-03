@@ -42,8 +42,8 @@ class PackageInfolist
                                         TextEntry::make('type')
                                             ->label('Package Type')
                                             ->badge()
-                                            ->formatStateUsing(fn (PackageType $state): string => $state->getLabel())
-                                            ->color(fn (PackageType $state): string => $state->getColor()),
+                                            ->formatStateUsing(fn(PackageType $state): string => $state->getLabel())
+                                            ->color(fn(PackageType $state): string => $state->getColor()),
                                         TextEntry::make('description')
                                             ->label('Description')
                                             ->placeholder('No description provided')
@@ -51,7 +51,7 @@ class PackageInfolist
                                             ->markdown(),
                                     ]),
                             ]),
-                        
+
                         Tab::make('Pricing')
                             ->icon(Heroicon::CurrencyDollar)
                             ->schema([
@@ -79,7 +79,7 @@ class PackageInfolist
                                             ]),
                                     ]),
                             ]),
-                        
+
                         Tab::make('Limits & Features')
                             ->icon(Heroicon::Sparkles)
                             ->schema([
@@ -91,18 +91,18 @@ class PackageInfolist
                                                 TextEntry::make('max_categories')
                                                     ->label('Max Categories')
                                                     ->numeric()
-                                                    ->formatStateUsing(fn ($state) => $state === 0 ? 'Unlimited' : $state),
+                                                    ->formatStateUsing(fn($state) => $state === 0 ? 'Unlimited' : $state),
                                                 TextEntry::make('max_products')
                                                     ->label('Max Products')
                                                     ->numeric()
-                                                    ->formatStateUsing(fn ($state) => $state === 0 ? 'Unlimited' : $state),
+                                                    ->formatStateUsing(fn($state) => $state === 0 ? 'Unlimited' : $state),
                                                 TextEntry::make('max_branches')
                                                     ->label('Max Branches')
                                                     ->numeric()
-                                                    ->formatStateUsing(fn ($state) => $state === 0 ? 'Unlimited' : $state),
+                                                    ->formatStateUsing(fn($state) => $state === 0 ? 'Unlimited' : $state),
                                             ]),
                                     ]),
-                                
+
                                 Section::make('Feature Permissions')
                                     ->description('Enabled features for this package')
                                     ->schema([
@@ -129,7 +129,7 @@ class PackageInfolist
                                             ]),
                                     ]),
                             ]),
-                        
+
                         Tab::make('Settings')
                             ->icon(Heroicon::Cog)
                             ->schema([
@@ -153,7 +153,7 @@ class PackageInfolist
                                             ->numeric()
                                             ->helperText('Lower numbers appear first'),
                                     ]),
-                                
+
                                 Section::make('Meta Information')
                                     ->description('Additional metadata')
                                     ->collapsible()
@@ -167,7 +167,7 @@ class PackageInfolist
                                                 if (empty($state)) {
                                                     return 'No meta fields configured';
                                                 }
-                                                
+
                                                 $output = '';
                                                 foreach ($state as $key => $value) {
                                                     $output .= "**{$key}:** {$value}\n";
@@ -177,7 +177,7 @@ class PackageInfolist
                                             ->markdown(),
                                     ]),
                             ]),
-                        
+
                         Tab::make('System Information')
                             ->icon(Heroicon::Server)
                             ->schema([
