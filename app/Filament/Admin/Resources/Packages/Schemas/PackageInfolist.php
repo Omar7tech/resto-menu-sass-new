@@ -18,7 +18,7 @@ class PackageInfolist
     {
         return $schema
             ->components([
-                Tabs::make('Package Details')
+                Tabs::make('Package Details')->columnSpanFull()
                     ->persistTab()
                     ->id('package-infolist-tabs')
                     ->tabs([

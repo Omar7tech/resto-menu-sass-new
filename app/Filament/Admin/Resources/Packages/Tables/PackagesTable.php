@@ -45,6 +45,8 @@ class PackagesTable
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->reorderable('sort')
+            ->defaultSort('sort', 'asc')
             ->filters([
                 //
             ])
