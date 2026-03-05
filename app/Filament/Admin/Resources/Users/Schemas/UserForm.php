@@ -112,10 +112,7 @@ class UserForm
                                                     ->label('Active Account')
                                                     ->default(true)
                                                     ->helperText('User can login and access the system'),
-                                                Toggle::make('require_password_change')
-                                                    ->label('Require Password Change')
-                                                    ->default(false)
-                                                    ->helperText('User must change password on next login'),
+                                                
                                             ]),
                                     ]),
                             ]),
