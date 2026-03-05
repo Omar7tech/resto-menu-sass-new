@@ -6,17 +6,17 @@ namespace App\Models;
 use App\Enums\UserRole;
 use Illuminate\Database\Eloquent\Attributes\ScopedBy;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Saade\FilamentFacehash\Concerns\HasFacehashAvatar;
 use App\Models\Scopes\UserScope;
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable , HasUuids;
+    use HasFactory, Notifiable , HasUlids;
     use HasFacehashAvatar;
 
     /**
@@ -66,7 +66,7 @@ class User extends Authenticatable
     public function facehashAvatarName(): Attribute
     {
         return new Attribute(
-            get: fn () => $this->name  // use email instead of name
+            get: fn () => $this->name  
         );
     }
    
