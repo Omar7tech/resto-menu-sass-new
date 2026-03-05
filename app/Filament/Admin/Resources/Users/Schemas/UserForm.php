@@ -58,7 +58,7 @@ class UserForm
                                             ->helperText('Select the user role and permissions'),
                                     ]),
                             ]),
-                        
+
                         Tab::make('Password & Security')
                             ->icon(Heroicon::LockClosed)
                             ->schema([
@@ -67,27 +67,20 @@ class UserForm
                                     ->schema([
                                         TextInput::make('password')
                                             ->password()
-                                            ->required(fn (string $context): bool => $context === 'create')
+                                            ->required(fn(string $context): bool => $context === 'create')
                                             ->revealable()
                                             ->rule(Password::default())
-                                            ->dehydrateStateUsing(fn ($state) => filled($state) ? bcrypt($state) : null)
-                                            ->dehydrated(fn ($state) => filled($state))
-                                            ->label(fn (string $context): string => $context === 'edit' ? 'New Password' : 'Password')
-                                            ->helperText(fn (string $context): string => 
-                                                $context === 'edit' 
-                                                    ? 'Leave empty to keep current password' 
-                                                    : 'Must be at least 8 characters with mixed case and numbers'
+                                            ->dehydrateStateUsing(fn($state) => filled($state) ? bcrypt($state) : null)
+                                            ->dehydrated(fn($state) => filled($state))
+                                            ->label(fn(string $context): string => $context === 'edit' ? 'New Password' : 'Password')
+                                            ->helperText(
+                                                fn(string $context): string =>
+                                                $context === 'edit'
+                                                ? 'Leave empty to keep current password'
+                                                : 'Must be at least 8 characters with mixed case and numbers'
                                             ),
-                                        TextInput::make('password_confirmation')
-                                            ->password()
-                                            ->required()
-                                            ->revealable()
-                                            ->label('Confirm Password')
-                                            ->same('password')
-                                            ->dehydrated(false)
-                                            ->helperText('Re-enter the password to confirm'),
                                     ]),
-                                
+
                                 Section::make('Security Settings')
                                     ->description('Additional security configuration')
                                     ->schema([
@@ -95,11 +88,11 @@ class UserForm
                                             ->label('Email Verified')
                                             ->default(false)
                                             ->helperText('Mark the user\'s email as verified')
-                                            ->dehydrateStateUsing(fn ($state) => $state ? now() : null)
-                                            ->dehydrated(fn ($state) => filled($state)),
+                                            ->dehydrateStateUsing(fn($state) => $state ? now() : null)
+                                            ->dehydrated(fn($state) => filled($state)),
                                     ]),
                             ]),
-                        
+
                         Tab::make('Account Settings')
                             ->icon(Heroicon::Cog6Tooth)
                             ->schema([
@@ -112,7 +105,7 @@ class UserForm
                                                     ->label('Active Account')
                                                     ->default(true)
                                                     ->helperText('User can login and access the system'),
-                                                
+
                                             ]),
                                     ]),
                             ]),
