@@ -4,9 +4,9 @@ namespace App\Filament\Admin\Resources\Menus;
 
 use App\Filament\Admin\Resources\Menus\Pages\CreateMenu;
 use App\Filament\Admin\Resources\Menus\Pages\EditMenu;
-use App\Filament\Admin\Resources\Menus\Pages\ListCategories;
 use App\Filament\Admin\Resources\Menus\Pages\ListMenus;
 use App\Filament\Admin\Resources\Menus\Pages\ViewMenu;
+use App\Filament\Admin\Resources\Menus\Resources\Categories\Pages\ListCategories;
 use App\Filament\Admin\Resources\Menus\Schemas\MenuForm;
 use App\Filament\Admin\Resources\Menus\Schemas\MenuInfolist;
 use App\Filament\Admin\Resources\Menus\Tables\MenusTable;

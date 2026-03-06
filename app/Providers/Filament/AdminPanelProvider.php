@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use Caresome\FilamentNeobrutalism\NeobrutalismeTheme;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -42,6 +43,7 @@ class AdminPanelProvider extends PanelProvider
                     ->variant(Variant::Solid)
                     ->initial(true)
                 ,
+                /* NeobrutalismeTheme::make(), */
                 FilamentSpatieLaravelHealthPlugin::make(),
                 EnvironmentIndicatorPlugin::make()->color(fn() => match (app()->environment()) {
                     'production' => Color::Green,

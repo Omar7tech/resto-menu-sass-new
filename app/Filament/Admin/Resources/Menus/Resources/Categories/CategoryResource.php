@@ -3,9 +3,9 @@
 namespace App\Filament\Admin\Resources\Menus\Resources\Categories;
 
 use App\Filament\Admin\Resources\Menus\MenuResource;
-use App\Filament\Admin\Resources\Menus\Pages\ListCategories;
 use App\Filament\Admin\Resources\Menus\Resources\Categories\Pages\CreateCategory;
 use App\Filament\Admin\Resources\Menus\Resources\Categories\Pages\EditCategory;
+use App\Filament\Admin\Resources\Menus\Resources\Categories\Pages\ListCategories;
 use App\Filament\Admin\Resources\Menus\Resources\Categories\Pages\ViewCategory;
 use App\Filament\Admin\Resources\Menus\Resources\Categories\Schemas\CategoryForm;
 use App\Filament\Admin\Resources\Menus\Resources\Categories\Schemas\CategoryInfolist;

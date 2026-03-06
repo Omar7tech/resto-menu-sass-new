@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Admin\Resources\Menus\Pages;
+namespace App\Filament\Admin\Resources\Menus\Resources\Categories\Pages;
 
 use App\Filament\Admin\Resources\Menus\Resources\Categories\CategoryResource;
 use BackedEnum;
