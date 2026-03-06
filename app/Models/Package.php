@@ -19,7 +19,6 @@ class Package extends Model
         'is_active',
         'name',
         'description',
-        'meta',
         'max_categories',
         'max_products',
         'can_add_images',
@@ -40,7 +39,6 @@ class Package extends Model
 
     protected $casts = [
         'type' => PackageType::class,
-        'meta' => 'array',
         'can_add_images' => 'boolean',
         'can_add_tags' => 'boolean',
         'has_multi_branches' => 'boolean',

@@ -2,7 +2,7 @@
 
 namespace App\Filament\Admin\Resources\Packages\Schemas;
 
-use App\Enums\PackageType;
+
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
@@ -41,9 +41,7 @@ class PackageInfolist
                                             ]),
                                         TextEntry::make('type')
                                             ->label('Package Type')
-                                            ->badge()
-                                            ->formatStateUsing(fn(PackageType $state): string => $state->getLabel())
-                                            ->color(fn(PackageType $state): string => $state->getColor()),
+                                            ->badge(),
                                         TextEntry::make('description')
                                             ->label('Description')
                                             ->placeholder('No description provided')
@@ -90,16 +88,13 @@ class PackageInfolist
                                             ->schema([
                                                 TextEntry::make('max_categories')
                                                     ->label('Max Categories')
-                                                    ->numeric()
-                                                    ->formatStateUsing(fn($state) => $state === 0 ? 'Unlimited' : $state),
+                                                    ->numeric(),
                                                 TextEntry::make('max_products')
                                                     ->label('Max Products')
-                                                    ->numeric()
-                                                    ->formatStateUsing(fn($state) => $state === 0 ? 'Unlimited' : $state),
+                                                    ->numeric(),
                                                 TextEntry::make('max_branches')
                                                     ->label('Max Branches')
-                                                    ->numeric()
-                                                    ->formatStateUsing(fn($state) => $state === 0 ? 'Unlimited' : $state),
+                                                    ->numeric(),
                                             ]),
                                     ]),
 
@@ -130,6 +125,7 @@ class PackageInfolist
                                     ]),
                             ]),
 
+
                         Tab::make('Settings')
                             ->icon(Heroicon::Cog)
                             ->schema([
@@ -154,48 +150,25 @@ class PackageInfolist
                                             ->helperText('Lower numbers appear first'),
                                     ]),
 
-                                Section::make('Meta Information')
-                                    ->description('Additional metadata')
-                                    ->collapsible()
-                                    ->collapsed()
+                                Tab::make('System Information')
+                                    ->icon(Heroicon::Server)
                                     ->schema([
-                                        TextEntry::make('meta')
-                                            ->label('Meta Fields')
-                                            ->placeholder('No meta fields configured')
-                                            ->columnSpanFull()
-                                            ->formatStateUsing(function ($state) {
-                                                if (empty($state)) {
-                                                    return 'No meta fields configured';
-                                                }
-
-                                                $output = '';
-                                                foreach ($state as $key => $value) {
-                                                    $output .= "**{$key}:** {$value}\n";
-                                                }
-                                                return $output;
-                                            })
-                                            ->markdown(),
-                                    ]),
-                            ]),
-
-                        Tab::make('System Information')
-                            ->icon(Heroicon::Server)
-                            ->schema([
-                                Section::make('Timestamps')
-                                    ->description('System timestamps')
-                                    ->schema([
-                                        Grid::make(2)
+                                        Section::make('Timestamps')
+                                            ->description('System timestamps')
                                             ->schema([
-                                                TextEntry::make('created_at')
-                                                    ->label('Created On')
-                                                    ->dateTime(),
-                                                TextEntry::make('updated_at')
-                                                    ->label('Last Updated')
-                                                    ->dateTime(),
+                                                Grid::make(2)
+                                                    ->schema([
+                                                        TextEntry::make('created_at')
+                                                            ->label('Created On')
+                                                            ->dateTime(),
+                                                        TextEntry::make('updated_at')
+                                                            ->label('Last Updated')
+                                                            ->dateTime(),
+                                                    ]),
                                             ]),
-                                    ]),
-                            ]),
-                    ]),
+                                    ])
+                            ])
+                    ])
             ]);
     }
 }

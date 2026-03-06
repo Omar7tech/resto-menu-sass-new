@@ -35,11 +35,6 @@ class PackageSeeder extends Seeder
                 'can_edit_theme' => false,
                 'remove_branding' => false,
                 'sort' => 1,
-                'meta' => [
-                    'target_audience' => 'Small businesses',
-                    'support_level' => 'Email support',
-                    'trial_days' => 14
-                ],
             ],
             [
                 'name' => 'Silver',
@@ -63,12 +58,6 @@ class PackageSeeder extends Seeder
                 'can_edit_theme' => false,
                 'remove_branding' => false,
                 'sort' => 2,
-                'meta' => [
-                    'target_audience' => 'Growing businesses',
-                    'support_level' => 'Priority email & phone support',
-                    'trial_days' => 30,
-                    'features' => ['Advanced analytics', 'Mobile app', 'QR code generation']
-                ],
             ],
             [
                 'name' => 'Gold',
@@ -92,19 +81,6 @@ class PackageSeeder extends Seeder
                 'can_edit_theme' => true,
                 'remove_branding' => true,
                 'sort' => 3,
-                'meta' => [
-                    'target_audience' => 'Large enterprises',
-                    'support_level' => '24/7 dedicated support',
-                    'trial_days' => 60,
-                    'features' => [
-                        'White-label solution',
-                        'API access',
-                        'Custom integrations',
-                        'Advanced analytics dashboard',
-                        'Priority updates',
-                        'Custom training sessions'
-                    ]
-                ],
             ],
         ];
 

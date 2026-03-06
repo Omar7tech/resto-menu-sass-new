@@ -17,8 +17,6 @@ class MenuForm
                 TextInput::make('name')
                     ->required(),
                 TextInput::make('description'),
-                TextInput::make('slug')
-                    ->required(),
                 Select::make('user_id')
                     ->required()
                     ->searchable()

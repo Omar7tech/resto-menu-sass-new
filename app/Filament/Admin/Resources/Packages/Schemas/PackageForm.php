@@ -169,20 +169,6 @@ class PackageForm
                                                     ->helperText('Remove platform branding'),
                                             ]),
                                     ]),
-
-                                Section::make('Meta Information')
-                                    ->description('Additional metadata and SEO information')
-                                    ->collapsible()
-                                    ->collapsed()
-                                    ->schema([
-                                        KeyValue::make('meta')
-                                            ->addButtonLabel('Add meta field')
-                                            ->keyLabel('Field name')
-                                            ->valueLabel('Field value')
-                                            ->reorderable()
-                                            ->deletable()
-                                            ->helperText('Add custom metadata fields'),
-                                    ]),
                             ]),
                     ]),
             ]);

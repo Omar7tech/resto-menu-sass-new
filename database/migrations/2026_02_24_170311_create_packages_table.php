@@ -12,7 +12,6 @@ return new class extends Migration {
             $table->boolean('is_active')->default(true)->index();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->json('meta')->nullable();
             $table->integer('max_categories')->default(0);
             $table->integer('max_products')->default(0);
             $table->boolean('can_add_images')->default(false);
