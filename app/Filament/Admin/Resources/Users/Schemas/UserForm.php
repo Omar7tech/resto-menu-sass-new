@@ -16,6 +16,12 @@ use Illuminate\Validation\Rules\Password;
 
 class UserForm
 {
+    /**
+     * Builds and returns a tabbed Filament form schema for managing user details.
+     *
+     * @param Schema $schema The base schema to augment with the configured tabs, sections, and fields.
+     * @return Schema The augmented schema containing the "Basic Information", "Password & Security", and "Account Settings" tabs and their nested components.
+     */
     public static function configure(Schema $schema): Schema
     {
         return $schema
