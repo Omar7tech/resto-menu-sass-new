@@ -30,12 +30,10 @@ class ListUsers extends ListRecords
             'all' => Tab::make()->icon('heroicon-m-user-group'),
             'clients' => Tab::make()->icon('heroicon-m-user-circle')
                 ->badge(static fn(): int => User::query()->where('role', 2)->count())
-                ->deferBadge()
                 ->badgeColor('success')
                 ->modifyQueryUsing(fn(Builder $query) => $query->where('role', 2)),
             'guests' => Tab::make()->icon('heroicon-m-user')
                 ->badge(static fn(): int => User::query()->where('role', 3)->count())
-                ->deferBadge()
                 ->badgeColor('warning')
                 ->modifyQueryUsing(fn(Builder $query) => $query->where('role', 3)),
         ];

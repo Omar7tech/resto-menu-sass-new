@@ -2,6 +2,9 @@
 
 namespace App\Filament\Admin\Resources\Menus\Schemas;
 
+use App\Enums\UserRole;
+use App\Models\User;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -16,9 +19,10 @@ class MenuForm
                 TextInput::make('description'),
                 TextInput::make('slug')
                     ->required(),
-                TextInput::make('user_id')
+                Select::make('user_id')
                     ->required()
-                    ->numeric(),
+                    ->searchable()
+                    ->relationship(name: 'user', titleAttribute: 'name', modifyQueryUsing: fn($query) => $query->where('role', '!=', UserRole::ADMIN->value))
             ]);
     }
 }

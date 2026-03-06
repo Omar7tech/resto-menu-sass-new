@@ -3,6 +3,7 @@
 namespace App\Filament\Admin\Resources\Menus\Resources\Categories;
 
 use App\Filament\Admin\Resources\Menus\MenuResource;
+use App\Filament\Admin\Resources\Menus\Pages\ListCategories;
 use App\Filament\Admin\Resources\Menus\Resources\Categories\Pages\CreateCategory;
 use App\Filament\Admin\Resources\Menus\Resources\Categories\Pages\EditCategory;
 use App\Filament\Admin\Resources\Menus\Resources\Categories\Pages\ViewCategory;
@@ -21,7 +22,7 @@ class CategoryResource extends Resource
     protected static ?string $model = Category::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-
+    protected static ?string $recordTitleAttribute = 'name';
     protected static ?string $parentResource = MenuResource::class;
 
     public static function form(Schema $schema): Schema
@@ -49,6 +50,7 @@ class CategoryResource extends Resource
     public static function getPages(): array
     {
         return [
+            'index' => ListCategories::route('/'),
             'create' => CreateCategory::route('/create'),
             'view' => ViewCategory::route('/{record}'),
             'edit' => EditCategory::route('/{record}/edit'),
