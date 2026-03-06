@@ -20,6 +20,7 @@ class MenuFactory extends Factory
             'name' => fake()->unique()->words(2, true),
             'description' => fake()->sentence(),
             'user_id' => \App\Models\User::inRandomOrder()->first()?->id ?? 1,
+            'package_id' => \App\Models\Package::inRandomOrder()->first()?->id ?? 1,
         ];
     }
 

@@ -10,13 +10,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Saade\FilamentFacehash\Concerns\HasFacehashAvatar;
-use App\Models\Scopes\UserScope;
-use Illuminate\Database\Eloquent\Concerns\HasUlids;
+
+
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable , HasUlids;
+    use HasFactory, Notifiable;
     use HasFacehashAvatar;
 
     /**
@@ -66,8 +66,8 @@ class User extends Authenticatable
     public function facehashAvatarName(): Attribute
     {
         return new Attribute(
-            get: fn () => $this->name  
+            get: fn() => $this->name
         );
     }
-   
+
 }

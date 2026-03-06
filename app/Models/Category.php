@@ -27,9 +27,8 @@ class Category extends Model
 
     public function getSlugOptions(): SlugOptions
     {
-        $menuSlug = $this->menu->slug ?? '';
         return SlugOptions::create()
-            ->generateSlugsFrom([$menuSlug, 'name'])
+            ->generateSlugsFrom(['menu.name', 'name'])
             ->saveSlugsTo('slug');
     }
 

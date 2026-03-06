@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->string('description')->nullable();
             $table->string('slug');
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('package_id')->constrained('packages')->cascadeOnDelete();
             $table->timestamps();
         });
     }

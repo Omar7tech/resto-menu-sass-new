@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         User::updateOrCreate(['name' => 'Administration', 'role' => UserRole::ADMIN->value , 'password' => 'password' , 'email' => 'admin@menuengine.com']);
         $this->call([
             UserSeeder::class,
+            PackageSeeder::class,
             MenuSeeder::class,
             CategorySeeder::class,
         ]);

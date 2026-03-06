@@ -10,7 +10,6 @@ use Spatie\Sluggable\SlugOptions;
 
 class Product extends Model
 {
-    use HasUuids;
     /** @use HasFactory<\Database\Factories\ProductFactory> */
     use HasFactory;
     use HasSlug;
@@ -35,7 +34,7 @@ class Product extends Model
     {
         $categorySlug = $this->category?->slug ?? '';
         return SlugOptions::create()
-            ->generateSlugsFrom(['name', 'categorySlug'])
+            ->generateSlugsFrom(['name', $categorySlug])
             ->saveSlugsTo('slug');
     }
 }

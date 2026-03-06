@@ -30,6 +30,11 @@ class Menu extends Model
     {
         return $this->hasMany(Product::class);
     }
+    
+    public function package()
+    {
+        return $this->belongsTo(Package::class);
+    }
 
     public function getSlugOptions(): SlugOptions
     {
