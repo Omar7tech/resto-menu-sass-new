@@ -20,7 +20,7 @@ class CategoryFactory extends Factory
         return [
             'name' => fake()->word(),
             'description' => fake()->sentence(),
-            'slug' => Str::slug('name')
+            'menu_id' => \App\Models\Menu::inRandomOrder()->first()?->id ?? 1,
         ];
     }
 }

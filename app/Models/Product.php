@@ -33,8 +33,9 @@ class Product extends Model
 
     public function getSlugOptions() : SlugOptions
     {
+        $categorySlug = $this->category?->slug ?? '';
         return SlugOptions::create()
-            ->generateSlugsFrom('name')
+            ->generateSlugsFrom(['name', 'categorySlug'])
             ->saveSlugsTo('slug');
     }
 }

@@ -17,13 +17,11 @@ class MenuFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->word(),
+            'name' => fake()->unique()->words(2, true),
             'description' => fake()->sentence(),
-            'slug' => "abc"
+            'user_id' => \App\Models\User::inRandomOrder()->first()?->id ?? 1,
         ];
     }
 
-    public function hasCategory(){
-        
-    }
+
 }

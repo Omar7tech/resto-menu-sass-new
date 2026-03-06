@@ -25,10 +25,16 @@ class Category extends Model
         return $this->belongsTo(Menu::class);
     }
 
-    public function getSlugOptions() : SlugOptions
+    public function getSlugOptions(): SlugOptions
     {
+        $menuSlug = $this->menu->slug ?? '';
         return SlugOptions::create()
-            ->generateSlugsFrom('name')
+            ->generateSlugsFrom([$menuSlug, 'name'])
             ->saveSlugsTo('slug');
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
     }
 }

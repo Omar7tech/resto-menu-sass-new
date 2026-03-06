@@ -18,11 +18,6 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->count(10)->create()->each(function ($user) {
-            $menu = Menu::factory()->for($user)->create();
-            Category::factory(10)->for($menu)->create()->each(function ($category) use ($menu) {
-                Product::factory(15)->for($category)->for($menu)->create();
-            });
-        });
+        User::factory()->count(100)->create();
     }
 }

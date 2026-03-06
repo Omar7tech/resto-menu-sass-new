@@ -9,7 +9,6 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
 
     /**
      * Seed the application's database.
@@ -19,6 +18,8 @@ class DatabaseSeeder extends Seeder
         User::updateOrCreate(['name' => 'Administration', 'role' => UserRole::ADMIN->value , 'password' => 'password' , 'email' => 'admin@menuengine.com']);
         $this->call([
             UserSeeder::class,
+            MenuSeeder::class,
+            CategorySeeder::class,
         ]);
     }
 }

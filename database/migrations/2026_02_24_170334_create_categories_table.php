@@ -15,7 +15,6 @@ return new class extends Migration {
             $table->string('name');
             $table->text('description')->nullable();
             $table->string('slug');
-
             $table->foreignId('menu_id')->constrained('menus')->cascadeOnDelete();
             $table->timestamps();
         });
