@@ -9,6 +9,7 @@ use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Support\Colors\Color;
 use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -26,14 +27,23 @@ class MenusTable
                     ->searchable(),
                 TextColumn::make('user.name')
                     ->searchable(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                IconColumn::make('seo_status')
+                    ->label('SEO')
+                    ->getStateUsing(fn ($record) => $record->seoStatus())
+                    ->boolean()
+                    ->trueIcon('heroicon-o-check-circle')
+                    ->falseIcon('heroicon-o-x-circle')
+                    ->trueColor(Color::Green)
+                    ->falseColor(Color::Red)
+                    ->tooltip(fn ($record) => $record->seoStatus() ? 'SEO Complete' : 'SEO Incomplete'),
                 TextColumn::make('package.name')
                     ->badge()
-
-                    ->icon(Heroicon::OutlinedBolt)
+                    ->icon(function($record){
+                        if ($record->package->type->value === PackageType::PUBLIC ->value) {
+                            return Heroicon::OutlinedGlobeAlt;
+                        }
+                        return Heroicon::ReceiptPercent;
+                    })
                     ->color(function ($record) {
                         if ($record->package->type->value === PackageType::PUBLIC ->value) {
                             return Color::Green;
@@ -42,6 +52,10 @@ class MenusTable
                     })
                     ->url(fn($record) => route('filament.admin.resources.packages.edit', ['record' => $record]))
                     ->searchable(),
+                TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()

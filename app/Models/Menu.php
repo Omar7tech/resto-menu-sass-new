@@ -15,10 +15,10 @@ class Menu extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 
-        'description', 
-        'user_id', 
-        'package_id', 
+        'name',
+        'description',
+        'user_id',
+        'package_id',
         'slug',
         'meta_title',
         'meta_description',
@@ -43,7 +43,7 @@ class Menu extends Model
     {
         return $this->hasMany(Product::class);
     }
-    
+
     public function package()
     {
         return $this->belongsTo(Package::class);
@@ -67,5 +67,12 @@ class Menu extends Model
         return [
             'meta_keywords' => 'array',
         ];
+    }
+
+    public function seoStatus(): bool
+    {
+        return !empty($this->meta_title) &&
+            !empty($this->meta_description);
+
     }
 }

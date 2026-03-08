@@ -10,17 +10,19 @@ use Filament\Forms\Components\Textarea;
 use Filament\Resources\Pages\EditRecord;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
 
 class EditMenuSeo extends EditRecord
 {
+
     protected static string $resource = MenuResource::class;
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-banknotes';
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::ArrowTrendingUp;
     protected static ?string $pluralModelLabel = 'SEO';
     protected static ?string $modelLabel = 'SEO';
 
     public static function getNavigationLabel(): string
     {
-        return 'Edit SEO';
+        return "SEO";
     }
 
     public function form(Schema $schema): Schema
@@ -35,7 +37,7 @@ class EditMenuSeo extends EditRecord
                             ->label('Meta Title')
                             ->helperText('Title that appears in search results (recommended: 50-60 characters)')
                             ->maxLength(60),
-                        
+
                         Textarea::make('meta_description')
                             ->label('Meta Description')
                             ->helperText('Description that appears in search results (recommended: 150-160 characters)')
