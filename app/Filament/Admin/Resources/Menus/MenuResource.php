@@ -52,6 +52,7 @@ class MenuResource extends Resource
             'create' => CreateMenu::route('/create'),
             'view' => ViewMenu::route('/{record}'),
             'edit' => EditMenu::route('/{record}/edit'),
+            'manage-menu-seo' => Pages\EditMenuSeo::route('/{record}/edit/seo')
         ];
     }
 
@@ -61,8 +62,10 @@ class MenuResource extends Resource
             Pages\EditMenu::class,
             Pages\ViewMenu::class,
             ListCategories::class,
+            Pages\EditMenuSeo::class,
         ]);
     }
 
 
 }
+ 

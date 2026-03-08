@@ -15,12 +15,20 @@ class MenuForm
         return $schema
             ->components([
                 TextInput::make('name')
-                    ->required(),
+                    ->columnSpanFull()
+                    ->required()
+                    ->helperText(fn (string $operation): ?string => $operation === 'edit' ? "⚠️ Editing the name will change the slug URL and regenerate the barcode" : "💡 Choose a permanent name to avoid future URL and barcode changes"),
                 TextInput::make('description'),
                 Select::make('user_id')
                     ->required()
                     ->searchable()
-                    ->relationship(name: 'user', titleAttribute: 'name', modifyQueryUsing: fn($query) => $query->where('role', '!=', UserRole::ADMIN->value))
+                    ->helperText("👤 Assign this menu to a user. Note: If you edit this user later, the menu will no longer be visible to them")
+                    ->relationship(name: 'user', titleAttribute: 'name', modifyQueryUsing: fn($query) => $query->where('role', '!=', UserRole::ADMIN->value)),
+                Select::make('package_id')
+                    ->required()
+                    ->native(false)
+                    ->helperText("📦 Select the subscription package that determines available features and limits for this menu")
+                    ->relationship(name: 'package', titleAttribute: 'name'),
             ]);
     }
 }

@@ -14,7 +14,20 @@ class Menu extends Model
     use HasSlug;
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'user_id', 'slug'];
+    protected $fillable = [
+        'name', 
+        'description', 
+        'user_id', 
+        'package_id', 
+        'slug',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
+        'og_title',
+        'og_description',
+        'og_image',
+        'canonical_url',
+    ];
 
     public function categories()
     {
@@ -43,8 +56,16 @@ class Menu extends Model
             ->saveSlugsTo('slug');
     }
 
+
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'meta_keywords' => 'array',
+        ];
     }
 }
