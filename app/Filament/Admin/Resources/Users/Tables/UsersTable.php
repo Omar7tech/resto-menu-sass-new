@@ -16,6 +16,15 @@ use Filament\Tables\Table;
 
 class UsersTable
 {
+    /**
+     * Configure the users table for the admin UI.
+     *
+     * Applies column definitions, query modification to exclude admin-role users, default sort, styling,
+     * record actions, and toolbar bulk actions for the users listing.
+     *
+     * @param Table $table The table instance to configure.
+     * @return Table The configured table instance.
+     */
     public static function configure(Table $table): Table
     {
         return $table
