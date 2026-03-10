@@ -7,4 +7,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/menu/{menu}', [MenuController::class, 'show'])->name('menuShow');
+Route::livewire('/menu/{menu}', 'pages::menu.show');
