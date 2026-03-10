@@ -7,6 +7,7 @@ use App\Helpers\UrlHelper;
 use BackedEnum;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
@@ -92,15 +93,19 @@ class EditMenuSeo extends EditRecord
                                         }
                                     ])
                                     ->visible(fn(callable $get) => $get('is_og_image_external')),
-                                FileUpload::make('og_image')
+                                SpatieMediaLibraryFileUpload::make('og_image')
                                     ->label('OG Image Upload')
                                     ->helperText('Upload an image for social media sharing. Recommended size: 1200x630px.')
                                     ->image()
                                     ->live()
-                                    ->directory('menu-seo/og-images')
+                                    ->downloadable()
+                                    ->openable()
+                                    ->collection(collection: 'og_image')
+                                    ->disk('public')
+                                    ->conversion('og_image')
                                     ->visibility('public')
                                     ->visible(fn(callable $get) => !$get('is_og_image_external')),
-                                
+
                             ]),
                     ]),
 
@@ -131,13 +136,18 @@ class EditMenuSeo extends EditRecord
                                 }
                             ])
                             ->visible(fn(callable $get) => $get('is_favicon_image_external')),
-                        FileUpload::make('favicon_upload')
+                        SpatieMediaLibraryFileUpload::make('favicon_upload')
                             ->label('Favicon Upload')
+                            ->collection('favicon')
                             ->helperText('Upload a favicon file (ICO, PNG, or SVG)')
                             ->acceptedFileTypes(['image/x-icon', 'image/png', 'image/svg+xml'])
-                            ->directory('menu-seo/favicons')
                             ->visibility('public')
+                            ->openable()
+                            ->downloadable()
+                            ->conversion('favicon')
+                            ->disk('public')
                             ->live()
+
                             ->visible(fn(callable $get) => !$get('is_favicon_image_external')),
                         Section::make()
                             ->description('This will use an external image URL for the favicon. Make sure the URL is publicly accessible and points to a valid favicon file (ICO, PNG, or SVG).')

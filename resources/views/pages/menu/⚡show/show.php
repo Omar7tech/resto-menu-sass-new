@@ -12,6 +12,6 @@ new class extends Component {
     public function render()
     {
         return $this->view()
-            ->title($this->menu->meta_title);
+            ->title($this->menu->meta_title ?? 'Menu - '.$this->menu->name);
     }
 };

@@ -6,14 +6,20 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Image\Enums\CropPosition;
+use Spatie\Image\Enums\Fit;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Menu extends Model
+class Menu extends Model implements HasMedia
 {
     /** @use HasFactory<\Database\Factories\MenuFactory> */
     use HasSlug;
     use HasFactory;
+    use InteractsWithMedia;
 
     protected $fillable = [
         'name',
@@ -81,5 +87,22 @@ class Menu extends Model
 
     }
 
-    
+    public function registerMediaConversions(?Media $media = null): void
+    {
+        $this->addMediaConversion('og_image')
+            ->performOnCollections('og_image')
+            ->quality(50)
+            ->format('jpg') 
+            ->crop(1200, 630, CropPosition::Center)
+            ->nonQueued();
+
+            $this->addMediaConversion('favicon')
+            ->performOnCollections('favicon')
+            ->format('png')
+            ->width(32)
+            ->height(32)
+            ->nonQueued();
+    }
+
+
 }
