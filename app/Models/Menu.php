@@ -25,8 +25,12 @@ class Menu extends Model
         'meta_keywords',
         'og_title',
         'og_description',
-        'og_image',
         'canonical_url',
+        'robots_meta',
+        'og_image_external_link',
+        'is_og_image_external',
+        'is_favicon_image_external',
+        'favicon_external_link'
     ];
 
     public function categories()
