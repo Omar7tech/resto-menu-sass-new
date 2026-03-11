@@ -11,8 +11,8 @@
         @livewireStyles
     </head>
     <body>
+        <x-NavBar.main1 />
         {{ $slot }}
-
         @livewireScripts
     </body>
 </html>

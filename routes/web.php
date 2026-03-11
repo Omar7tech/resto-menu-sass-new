@@ -7,4 +7,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::livewire('/menu/{menu}', 'pages::menu.show');
+Route::livewire('/menu/{menu}', 'pages::menu.show')
+    ->middleware('identify.menu');

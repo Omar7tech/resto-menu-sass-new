@@ -1,4 +1,4 @@
-<x-page-seo :$menu />
+<x-menu-seo :$menu />
 <div>
     test
 </div>
