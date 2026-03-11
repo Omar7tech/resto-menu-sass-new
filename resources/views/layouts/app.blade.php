@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>{{ $title ?? "Menu Engine Restuarant Menu" }}</title>
-        @yield('seo')
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        @livewireStyles
-    </head>
-    <body>
-        <x-NavBar.main1 />
-        {{ $slot }}
-        @livewireScripts
-    </body>
+    <title>{{ $title ?? "Menu Engine Restuarant Menu" }}</title>
+    @if ($menu)
+        <x-menu-seo />
+    @endif
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    @livewireStyles
+</head>
+
+<body>
+    <x-NavBar.main1 />
+    {{ $slot }}
+    @livewireScripts
+</body>
+
 </html>
