@@ -39,7 +39,8 @@ class Menu extends Model implements HasMedia
         'is_favicon_image_external',
         'favicon_external_link',
         'primary_color',
-        'dark_mode'
+        'dark_mode',
+        'font'
     ];
 
     public function categories()

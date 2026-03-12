@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "34a96575570da0a15dbc2dd4404de1a6",
+    "content-hash": "d6ef35e639b1c88f1d7a9ffe7c787822",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -424,6 +424,78 @@
                 "source": "https://github.com/caresome/filament-neobrutalism-theme/tree/v2.0.0"
             },
             "time": "2026-01-25T05:01:06+00:00"
+        },
+        {
+            "name": "charlieetienne/filament-font-picker",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CharlieEtienne/filament-font-picker.git",
+                "reference": "a43fdac98fdf318bf6e6d076cc09248f28f55ee4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CharlieEtienne/filament-font-picker/zipball/a43fdac98fdf318bf6e6d076cc09248f28f55ee4",
+                "reference": "a43fdac98fdf318bf6e6d076cc09248f28f55ee4",
+                "shasum": ""
+            },
+            "require": {
+                "filament/forms": "^4.0|^5.0",
+                "php": "^8.2",
+                "spatie/laravel-package-tools": "^1.15.0"
+            },
+            "require-dev": {
+                "laravel/framework": "^11.0|^12.0",
+                "orchestra/testbench": "^9.0|^10.0",
+                "pestphp/pest": "^3.0|^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "CharlieEtienne\\FilamentFontPicker\\FontPickerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "CharlieEtienne\\FilamentFontPicker\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Charlie Etienne",
+                    "email": "hello@charlieetienne.com"
+                }
+            ],
+            "description": "A Filament form component for selecting Google Fonts with real-time previews, search functionality, and category filtering.",
+            "homepage": "https://github.com/charlieetienne/filament-font-picker",
+            "keywords": [
+                "filament",
+                "font-picker",
+                "form-component",
+                "google-fonts",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/charlieetienne/filament-font-picker/issues",
+                "source": "https://github.com/charlieetienne/filament-font-picker"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/CharlieEtienne",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/pxlrbt",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-01-19T08:31:33+00:00"
         },
         {
             "name": "chillerlan/php-qrcode",

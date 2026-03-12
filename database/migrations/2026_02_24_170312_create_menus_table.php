@@ -32,6 +32,7 @@ return new class extends Migration {
             //Design And Theme
             $table->string('primary_color')->default('#652FF5')->nullable();
             $table->boolean('dark_mode')->default(false);
+            $table->string('font')->default('Poppins')->nullable();
             $table->timestamps();
         });
     }
