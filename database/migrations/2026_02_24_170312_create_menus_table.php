@@ -29,6 +29,9 @@ return new class extends Migration {
             $table->boolean('is_favicon_image_external')->default(false);
             $table->string('favicon_external_link')->nullable();
 
+            //Design And Theme
+            $table->string('primary_color')->default('#652FF5')->nullable();
+            $table->boolean('dark_mode')->default(false);
             $table->timestamps();
         });
     }

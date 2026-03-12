@@ -37,7 +37,9 @@ class Menu extends Model implements HasMedia
         'og_image_external_link',
         'is_og_image_external',
         'is_favicon_image_external',
-        'favicon_external_link'
+        'favicon_external_link',
+        'primary_color',
+        'dark_mode'
     ];
 
     public function categories()
@@ -77,6 +79,7 @@ class Menu extends Model implements HasMedia
     {
         return [
             'meta_keywords' => 'array',
+            'dark_mode' => 'boolean',
         ];
     }
 
