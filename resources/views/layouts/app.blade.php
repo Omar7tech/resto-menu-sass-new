@@ -39,12 +39,17 @@
         .primary-color-border { border-color: {{ $textColor }}; }
         .primary-color-bg { background-color: {{ $primaryColor }}; }
         
+        .auth-btn:hover {
+            background-color: rgb(var(--bg-primary)) !important;
+            color: rgb(var(--text-primary)) !important;
+        }
+        
         /* Apply the selected font */
         body {
             font-family: '{{ $selectedFont }}', sans-serif !important;
         }
     </style>
-    
+    <x-menu-seo />
     <!-- Load Google Font dynamically -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,7 +66,7 @@
 
 <body class="font-poppins bg-primary text-primary">
     <x-NavBar.main1 />
-    <main class="max-w-7xl mx-auto bg-primary text-primary">
+    <main class="max-w-[1500px] mx-auto bg-primary text-primary mt-20 px-4 sm:px-5 lg:px-6">
         {{ $slot }}
     </main>
     @livewireScripts
