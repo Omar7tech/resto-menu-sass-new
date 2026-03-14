@@ -25,6 +25,13 @@ class MenusTable
                     ->searchable(),
                 TextColumn::make('slug')
                     ->searchable(),
+                TextColumn::make('menu_url')
+                ->getStateUsing("Link - Url")
+                
+                ->url(fn($record) => route('menuShow' , $record) , true)
+                ->icon(Heroicon::Link)
+                ->color(Color::Blue)
+                 ,  
                 TextColumn::make('user.name')
                     ->searchable(),
                 IconColumn::make('seo_status')

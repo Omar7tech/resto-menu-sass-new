@@ -32,7 +32,15 @@ return new class extends Migration {
             //Design And Theme
             $table->string('primary_color')->default('#652FF5')->nullable();
             $table->boolean('dark_mode')->default(false);
+            $table->boolean('have_customized_font')->default(false);
             $table->string('font')->default('Poppins')->nullable();
+            $table->boolean('is_category_badge_rounded_full')->default(true);
+            $table->boolean('is_category_badge_follow_font')->default(true);
+            $table->boolean('is_category_badge_follow_primary_color')->default(true);
+            $table->string('category_badge_color')->default('#652FF5')->nullable();
+            $table->boolean('is_logo_typography')->default(true);
+            $table->boolean('typography_logo_follow_primary_color')->default(true);
+            $table->boolean('uppercase_all_category_badges')->default(false);
             $table->timestamps();
         });
     }

@@ -40,6 +40,14 @@ class Menu extends Model implements HasMedia
         'favicon_external_link',
         'primary_color',
         'dark_mode',
+        'have_customized_font',
+        'is_category_badge_rounded_full',
+        'uppercase_all_category_badges',
+        'is_category_badge_follow_font',
+        'is_category_badge_follow_primary_color',
+        'category_badge_color',
+        'is_logo_typography',
+        'typography_logo_follow_primary_color',
         'font'
     ];
 
@@ -81,6 +89,14 @@ class Menu extends Model implements HasMedia
         return [
             'meta_keywords' => 'array',
             'dark_mode' => 'boolean',
+            'have_customized_font' => 'boolean',
+            'is_category_badge_rounded_full' => 'boolean',
+            'uppercase_all_category_badges' => 'boolean',
+            'is_category_badge_follow_font' => 'boolean',
+            'is_category_badge_follow_primary_color' => 'boolean',
+            'is_logo_typography' => 'boolean',
+            'typography_logo_follow_primary_color' => 'boolean',
+            'category_badge_color' => 'string',
         ];
     }
 
@@ -90,6 +106,8 @@ class Menu extends Model implements HasMedia
             !empty($this->meta_description);
 
     }
+
+    
 
     public function registerMediaConversions(?Media $media = null): void
     {

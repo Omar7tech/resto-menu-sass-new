@@ -1,7 +1,5 @@
-<div class="flex gap-2 overflow-auto">
+<div class="flex gap-2 overflow-auto py-2">
   @foreach ($menu->categories as $category)
-    <div class="primary-color-bg primary-color-text px-4 py-2 rounded-full">
-      {{ $category->name }}
-    </div>
+    <x-categories.bar-badge :name="$category->name" />
   @endforeach
 </div>

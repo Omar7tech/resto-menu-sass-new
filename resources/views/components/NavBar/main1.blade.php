@@ -4,12 +4,24 @@
     <div class="flex justify-between items-center h-16">
       <!-- Logo -->
       <a href="/" class="flex items-center space-x-3 group p-1 rounded-xl transition-all duration-300">
-        @if($menu->getFirstMedia('logo'))
-          <img src="{{ $menu->getFirstMediaUrl('logo') }}" alt="{{ $menu->name }}" class="h-8 w-auto object-contain">
-        @else
-          <span class="font-bold text-xl text-primary hidden lg:inline">
+        @if($menu->is_logo_typography)
+          <span class="font-bold text-xl {{ $menu->typography_logo_follow_primary_color ? 'primary-color-text' : 'text-primary' }} hidden lg:inline" 
+                @if($menu->typography_logo_follow_primary_color) 
+                  style="color: {{ $menu->primary_color ?? '#652FF5' }};" 
+                @endif>
             {{ $menu->name }}
           </span>
+        @else
+          @if($menu->getFirstMedia('logo'))
+            <img src="{{ $menu->getFirstMediaUrl('logo') }}" alt="{{ $menu->name }}" class="h-8 w-auto object-contain">
+          @else
+            <span class="font-bold text-xl {{ $menu->typography_logo_follow_primary_color ? 'primary-color-text' : 'text-primary' }} hidden lg:inline" 
+                  @if($menu->typography_logo_follow_primary_color) 
+                    style="color: {{ $menu->primary_color ?? '#652FF5' }};" 
+                  @endif>
+              {{ $menu->name }}
+            </span>
+          @endif
         @endif
       </a>
 

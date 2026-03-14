@@ -9,5 +9,5 @@ Route::get('/', function () {
 });
 
 Route::middleware(['identify.menu'])->group(function () {
-    Route::livewire('/menu/{menu}', 'pages::menu.show');
+    Route::livewire('/menu/{menu}', 'pages::menu.show')->name('menuShow');
 });
