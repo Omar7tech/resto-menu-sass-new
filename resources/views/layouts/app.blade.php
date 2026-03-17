@@ -34,7 +34,7 @@
 
 <body class="font-poppins bg-primary text-primary"   >
     <x-NavBar.main1 />
-    <main class="max-w-[1500px] mx-auto bg-primary text-primary mt-20 px-4 sm:px-5 lg:px-6">
+    <main class="max-w-[2000px] mx-auto bg-primary text-primary mt-20">
         {{ $slot }}
     </main>
     @livewireScripts

@@ -43,3 +43,7 @@ html[data-theme="dark"] {
 
 .border-primary { border-color: rgb(var(--border-primary)); }
 .border-secondary { border-color: rgb(var(--border-secondary)); }
+
+[x-cloak] { 
+    display: none !important; 
+}
