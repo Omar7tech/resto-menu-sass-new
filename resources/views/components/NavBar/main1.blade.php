@@ -1,35 +1,39 @@
 <nav class="fixed top-0 w-full z-50 backdrop-blur-xl" x-data="{ open: false }" @click.away="open = false"
   style="background-color: rgb(var(--bg-primary) / 0.8);">
   <div class="max-w-[1500px] mx-auto px-4 sm:px-5 lg:px-6">
-    <div class="flex justify-between items-center h-16">
-      <!-- Logo -->
-      <a href="/" class="flex items-center space-x-3 group p-1 rounded-xl transition-all duration-300">
-        @if($menu->is_logo_typography)
-          <span class="font-bold text-xl {{ $menu->typography_logo_follow_primary_color ? 'primary-color-text' : 'text-primary' }} hidden lg:inline" 
-                @if($menu->typography_logo_follow_primary_color) 
-                  style="color: {{ $menu->primary_color ?? '#652FF5' }};" 
-                @endif>
-            {{ $menu->name }}
-          </span>
-        @else
-          @if($menu->getFirstMedia('logo'))
-            <img src="{{ $menu->getFirstMediaUrl('logo') }}" alt="{{ $menu->name }}" class="h-8 w-auto object-contain">
-          @else
-            <span class="font-bold text-xl {{ $menu->typography_logo_follow_primary_color ? 'primary-color-text' : 'text-primary' }} hidden lg:inline" 
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo Section -->
+      <div class="flex items-center">
+        <a href="/" class="flex items-center space-x-3 group p-1 rounded-xl transition-all duration-300">
+          @if($menu->is_logo_typography)
+            <span class="font-bold text-xl {{ $menu->typography_logo_follow_primary_color ? 'primary-color-text' : 'text-primary' }}" 
                   @if($menu->typography_logo_follow_primary_color) 
                     style="color: {{ $menu->primary_color ?? '#652FF5' }};" 
                   @endif>
               {{ $menu->name }}
             </span>
+          @else
+            @if($menu->getFirstMedia('logo'))
+              <img src="{{ $menu->getFirstMediaUrl('logo') }}" alt="{{ $menu->name }}" class="h-8 w-auto object-contain max-w-[200px]">
+            @else
+              <span class="font-bold text-xl {{ $menu->typography_logo_follow_primary_color ? 'primary-color-text' : 'text-primary' }}" 
+                    @if($menu->typography_logo_follow_primary_color) 
+                      style="color: {{ $menu->primary_color ?? '#652FF5' }};" 
+                    @endif>
+                {{ $menu->name }}
+              </span>
+            @endif
           @endif
-        @endif
-      </a>
+        </a>
+      </div>
 
       <!-- Desktop Navigation -->
-      <div class="hidden lg:flex items-center space-x-8">
-        <x-NavBar.desktopLink href="/menu" text="Menu" />
-        <x-NavBar.desktopLink href="/about" text="About Us" />
-        <x-NavBar.desktopLink href="/contact" text="Contact" />
+      <div class="hidden lg:flex items-center flex-1 justify-center">
+        <div class="flex items-center space-x-8">
+          <x-NavBar.desktopLink href="/menu" text="Menu" />
+          <x-NavBar.desktopLink href="/about" text="About Us" />
+          <x-NavBar.desktopLink href="/contact" text="Contact" />
+        </div>
       </div>
 
       <!-- Cart + Auth Button + Mobile Menu -->

@@ -1,8 +1,8 @@
 @props(['name' => 'test'])
-<div class="category-badge {{ $menu->is_category_badge_follow_primary_color ? 'primary-color-bg' : '' }} text-lg font-medium {{ $menu->is_category_badge_follow_primary_color ? 'primary-color-text' : '' }} {{ $menu->uppercase_all_category_badges ? 'uppercase' : '' }} px-4 py-2 {{ $menu->is_category_badge_rounded_full ? 'rounded-full' : 'rounded-sm' }} border transition-all duration-300 hover:scale-102 hover:shadow-xs cursor-pointer overflow-visible" 
-@if(!$menu->is_category_badge_follow_primary_color)
-  style="background-color: {{ $menu->category_badge_color }}; color: {{ $menu->category_badge_color ? (new \App\Helpers\ColorHelper($menu->category_badge_color))->getContrastColor() : '#FFFFFF' }};"
-@endif
->
-  {{ $name }}
+<div
+  class="category-badge {{ $menu->is_category_badge_follow_primary_color ? 'primary-color-bg primary-color-text' : 'category-badge-custom-color' }} text-xs font-medium tracking-[0.08em] {{ $menu->uppercase_all_category_badges ? 'uppercase' : '' }} px-6 py-3 {{ $menu->is_category_badge_rounded_full ? 'rounded-full' : 'rounded-lg' }} {{ $menu->category_badge_show_border ? 'border-0' : '' }} transition-all duration-300 cursor-pointer relative group lg:hover:scale-[1.02] lg:hover:-translate-y-px">
+  <span class="relative z-10">{{ $name }}</span>
+  <div
+    class="absolute inset-0 bg-linear-to-br from-white/8 via-transparent to-transparent opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 {{ $menu->is_category_badge_rounded_full ? 'rounded-full' : 'rounded-lg' }}">
+  </div>
 </div>

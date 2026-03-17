@@ -90,6 +90,11 @@ class EditThemeAndDesign extends EditRecord
               ->helperText('Enable to uppercase all category badge text using Tailwind classes')
               ->default(false),
             
+            Toggle::make('category_badge_show_border')
+              ->label('Show Category Badge Borders')
+              ->helperText('Enable to show borders around category badges for better definition')
+              ->default(true),
+            
             Toggle::make('is_category_badge_follow_font')
               ->label('Category Badges Follow Custom Font')
               ->helperText('Enable for badges to use custom font, disable to always use Poppins')
