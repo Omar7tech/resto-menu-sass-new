@@ -49,7 +49,8 @@ class Menu extends Model implements HasMedia
         'category_badge_color',
         'is_logo_typography',
         'typography_logo_follow_primary_color',
-        'font'
+        'font',
+        'is_category_bar_sticky'
     ];
 
     public function categories()
@@ -99,6 +100,7 @@ class Menu extends Model implements HasMedia
             'is_logo_typography' => 'boolean',
             'typography_logo_follow_primary_color' => 'boolean',
             'category_badge_color' => 'string',
+            'is_category_bar_sticky' => 'boolean',
         ];
     }
 

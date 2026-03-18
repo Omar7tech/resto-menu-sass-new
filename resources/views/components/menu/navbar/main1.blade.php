@@ -32,9 +32,9 @@
 
       <div class="hidden lg:flex items-center flex-1 justify-center">
         <div class="flex items-center space-x-8">
-          <x-NavBar.desktopLink href="/menu" text="Menu" />
-          <x-NavBar.desktopLink href="/about" text="About Us" />
-          <x-NavBar.desktopLink href="/contact" text="Contact" />
+          <x-menu.navbar.desktopLink href="/menu" text="Menu" />
+          <x-menu.navbar.desktopLink href="/about" text="About Us" />
+          <x-menu.navbar.desktopLink href="/contact" text="Contact" />
         </div>
       </div>
 
@@ -75,9 +75,9 @@
          x-transition:leave-start="opacity-100 translate-y-0"
          x-transition:leave-end="opacity-0 -translate-y-2"
          class="lg:hidden border-t py-4 space-y-3">
-        <x-NavBar.mobileLink href="/menu" text="Menu" />
-        <x-NavBar.mobileLink href="/about" text="About Us" />
-        <x-NavBar.mobileLink href="/contact" text="Contact" />
+        <x-menu.navbar.mobileLink href="/menu" text="Menu" />
+        <x-menu.navbar.mobileLink href="/about" text="About Us" />
+        <x-menu.navbar.mobileLink href="/contact" text="Contact" />
     </div>
   </div>
 </nav>

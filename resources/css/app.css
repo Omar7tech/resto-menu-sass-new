@@ -47,3 +47,42 @@ html[data-theme="dark"] {
 [x-cloak] { 
     display: none !important; 
 }
+
+.category-swiper {
+  padding: 20px 0;
+  overflow-x: hidden;
+  overflow-y: visible;
+  position: relative;
+}
+
+.category-swiper .swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.category-swiper .swiper-slide {
+  width: auto !important;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Add padding to first and last slides */
+.category-swiper .swiper-slide:first-child {
+  margin-left: 16px;
+}
+
+.category-swiper .swiper-slide:last-child {
+  margin-right: 16px;
+}
+
+/* Desktop padding */
+@media (min-width: 1024px) {
+  .category-swiper .swiper-slide:first-child {
+    margin-left: 24px;
+  }
+  
+  .category-swiper .swiper-slide:last-child {
+    margin-right: 24px;
+  }
+}

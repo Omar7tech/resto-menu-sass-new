@@ -42,6 +42,7 @@ return new class extends Migration {
             $table->boolean('typography_logo_follow_primary_color')->default(true);
             $table->boolean('uppercase_all_category_badges')->default(false);
             $table->boolean('category_badge_show_border')->default(true);
+            $table->boolean('is_category_bar_sticky')->default(false);
             $table->timestamps();
         });
     }

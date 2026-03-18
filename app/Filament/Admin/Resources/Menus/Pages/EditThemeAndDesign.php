@@ -95,6 +95,11 @@ class EditThemeAndDesign extends EditRecord
               ->helperText('Enable to show borders around category badges for better definition')
               ->default(true),
             
+            Toggle::make('is_category_bar_sticky')
+              ->label('Sticky Category Bar')
+              ->helperText('Enable to keep category bar visible while scrolling')
+              ->default(false),
+            
             Toggle::make('is_category_badge_follow_font')
               ->label('Category Badges Follow Custom Font')
               ->helperText('Enable for badges to use custom font, disable to always use Poppins')
