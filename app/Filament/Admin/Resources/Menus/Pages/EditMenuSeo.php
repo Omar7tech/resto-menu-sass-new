@@ -92,7 +92,9 @@ class EditMenuSeo extends EditRecord
                                             };
                                         }
                                     ])
-                                    ->visible(fn(callable $get) => $get('is_og_image_external')),
+                                    ->visibleJs(<<<'JS'
+                                        $get('is_og_image_external')
+                                        JS),
                                 SpatieMediaLibraryFileUpload::make('og_image')
                                     ->label('OG Image Upload')
                                     ->helperText('Upload an image for social media sharing. Recommended size: 1200x630px.')
@@ -104,7 +106,9 @@ class EditMenuSeo extends EditRecord
                                     ->disk('public')
                                     ->conversion('og_image')
                                     ->visibility('public')
-                                    ->visible(fn(callable $get) => !$get('is_og_image_external')),
+                                    ->visibleJs(<<<'JS'
+                                        !$get('is_og_image_external')
+                                        JS),
 
                             ]),
                     ]),
@@ -135,7 +139,9 @@ class EditMenuSeo extends EditRecord
                                     };
                                 }
                             ])
-                            ->visible(fn(callable $get) => $get('is_favicon_image_external')),
+                            ->visibleJs(<<<'JS'
+                                $get('is_favicon_image_external')
+                                JS),
                         SpatieMediaLibraryFileUpload::make('favicon_upload')
                             ->label('Favicon Upload')
                             ->collection('favicon')
@@ -148,12 +154,16 @@ class EditMenuSeo extends EditRecord
                             ->disk('public')
                             ->live()
 
-                            ->visible(fn(callable $get) => !$get('is_favicon_image_external')),
+                            ->visibleJs(<<<'JS'
+                                !$get('is_favicon_image_external')
+                                JS),
                         Section::make()
                             ->description('This will use an external image URL for the favicon. Make sure the URL is publicly accessible and points to a valid favicon file (ICO, PNG, or SVG).')
                             ->icon('heroicon-o-information-circle')
                             ->iconColor('info')
-                            ->visible(fn(callable $get) => $get('is_favicon_image_external')),
+                            ->visibleJs(<<<'JS'
+                                $get('is_favicon_image_external')
+                                JS),
                     ]),
             ]);
     }

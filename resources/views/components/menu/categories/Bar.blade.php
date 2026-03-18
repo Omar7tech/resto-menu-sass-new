@@ -9,7 +9,7 @@
     <div class="swiper-wrapper">
       @foreach ($menu->categories as $category)
         <div class="swiper-slide">
-          <x-menu.categories.bar-badge :name="$category->name" />
+          <x-menu.categories.bar-badge :category="$category" />
         </div>
       @endforeach
     </div>

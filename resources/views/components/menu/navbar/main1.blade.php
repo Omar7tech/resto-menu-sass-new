@@ -8,25 +8,7 @@
       
       <div class="flex items-center">
         <a href="/" class="flex items-center space-x-3 group p-1 rounded-xl transition-all duration-300">
-          @if($menu->is_logo_typography)
-            <span class="font-bold text-xl {{ $menu->typography_logo_follow_primary_color ? 'primary-color-text' : 'text-primary' }}" 
-                  @if($menu->typography_logo_follow_primary_color) 
-                    style="color: {{ $menu->primary_color ?? '#652FF5' }};" 
-                  @endif>
-              {{ $menu->name }}
-            </span>
-          @else
-            @if($menu->getFirstMedia('logo'))
-              <img src="{{ $menu->getFirstMediaUrl('logo') }}" alt="{{ $menu->name }}" class="h-8 w-auto object-contain max-w-[200px]">
-            @else
-              <span class="font-bold text-xl {{ $menu->typography_logo_follow_primary_color ? 'primary-color-text' : 'text-primary' }}" 
-                    @if($menu->typography_logo_follow_primary_color) 
-                      style="color: {{ $menu->primary_color ?? '#652FF5' }};" 
-                    @endif>
-                {{ $menu->name }}
-              </span>
-            @endif
-          @endif
+          <x-menu.logo />
         </a>
       </div>
 
@@ -57,9 +39,9 @@
 
         <button @click="open = !open" type="button" class="lg:hidden p-2 text-primary/80 focus:outline-none" aria-label="Toggle menu">
             <div class="w-6 h-5 relative flex flex-col justify-between overflow-hidden">
-                <span :class="open ? 'translate-y-[9px] rotate-45' : ''" class="w-full h-0.5 primary-color-bg rounded-full transition-all duration-300 origin-center"></span>
-                <span :class="open ? 'opacity-0 -translate-x-full' : ''" class="w-full h-0.5 primary-color-bg rounded-full transition-all duration-300"></span>
-                <span :class="open ? '-translate-y-[9px] -rotate-45' : ''" class="w-full h-0.5 primary-color-bg rounded-full transition-all duration-300 origin-center"></span>
+                <span :class="open ? 'translate-y-[9px] rotate-45' : ''" class="w-full h-[3px] primary-color-bg rounded-full transition-all duration-300 origin-center"></span>
+                <span :class="open ? 'opacity-0 -translate-x-full' : ''" class="w-full h-[3px] primary-color-bg rounded-full transition-all duration-300"></span>
+                <span :class="open ? '-translate-y-[9px] -rotate-45' : ''" class="w-full h-[3px] primary-color-bg rounded-full transition-all duration-300 origin-center"></span>
             </div>
         </button>
       </div>

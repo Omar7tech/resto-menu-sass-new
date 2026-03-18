@@ -1,40 +1,18 @@
 @props(['menu' => null])
 
-<footer class="border-t border-[rgb(var(--border-secondary))] bg-[rgb(var(--bg-primary))] text-[rgb(var(--text-secondary))] mt-auto">
-  <div class="max-w-[1500px] mx-auto px-4 sm:px-5 lg:px-6 py-8">
+<footer data-aos="fade-up" class="mt-20 border-t border-[rgb(var(--border-secondary))] bg-[rgb(var(--bg-primary))] text-[rgb(var(--text-secondary))]">
+  <div class="max-w-[1500px] mx-auto px-4 sm:px-5 lg:px-6 py-8" >
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       
       <!-- Brand Section -->
       <div class="space-y-4">
         @if($menu)
-          <div class="flex items-center space-x-3">
-            @if($menu->is_logo_typography)
-              <span class="font-bold text-xl {{ $menu->typography_logo_follow_primary_color ? 'primary-color-text' : 'text-primary' }}" 
-                    @if($menu->typography_logo_follow_primary_color) 
-                      style="color: {{ $menu->primary_color ?? '#652FF5' }};" 
-                    @endif>
-                {{ $menu->name }}
-              </span>
-            @else
-              @if($menu->getFirstMedia('logo'))
-                <img src="{{ $menu->getFirstMediaUrl('logo') }}" alt="{{ $menu->name }}" class="h-8 w-auto object-contain max-w-[200px]">
-              @else
-                <span class="font-bold text-xl {{ $menu->typography_logo_follow_primary_color ? 'primary-color-text' : 'text-primary' }}" 
-                      @if($menu->typography_logo_follow_primary_color) 
-                        style="color: {{ $menu->primary_color ?? '#652FF5' }};" 
-                      @endif>
-                  {{ $menu->name }}
-                </span>
-              @endif
-            @endif
-          </div>
+          <x-menu.logo size="large" />
           @if($menu->description)
             <p class="text-sm leading-relaxed">{{ $menu->description }}</p>
           @endif
         @else
-          <div class="flex items-center space-x-3">
-            <span class="font-bold text-xl text-primary">Menu Engine</span>
-          </div>
+          <x-menu.logo size="large" />
           <p class="text-sm leading-relaxed">Beautiful restaurant menus made simple.</p>
         @endif
       </div>
