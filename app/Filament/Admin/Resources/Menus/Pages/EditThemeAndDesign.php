@@ -168,6 +168,80 @@ class EditThemeAndDesign extends EditRecord
                         !$get('is_category_badge_follow_primary_color')
                         JS),
                   ]),
+                
+                Section::make('Category Title Design')
+                  ->description('Configure how category titles are displayed')
+                  ->schema([
+                    Toggle::make('is_category_title_bold')
+                      ->label('Bold Category Titles')
+                      ->helperText('Enable to make category titles bold')
+                      ->default(true),
+                    
+                    Toggle::make('is_category_title_centered')
+                      ->label('Centered Category Titles')
+                      ->helperText('Enable to center-align category titles')
+                      ->default(false),
+                    
+                    Toggle::make('is_category_title_custom_font')
+                      ->label('Category Titles Follow Custom Font')
+                      ->helperText('Enable for titles to use custom font, disable to always use Poppins')
+                      ->default(true),
+                  ]),
+                
+                Section::make('Category Animations')
+                  ->description('Configure animation effects for category sections')
+                  ->schema([
+                    Toggle::make('enable_category_animations')
+                      ->label('Enable Category Animations')
+                      ->helperText('Enable to apply animation effects when categories come into view')
+                      ->default(true)
+                      ->live(),
+                    
+                    \Filament\Forms\Components\Select::make('category_animation_type')
+                      ->label('Animation Type')
+                      ->helperText('Choose the animation effect for category sections')
+                      ->native(false)
+                      ->default('fade-up')
+                      ->requiredIf('enable_category_animations', true)
+                      ->options([
+                        'fade-up' => 'Fade Up',
+                        'fade-down' => 'Fade Down',
+                        'fade-left' => 'Fade Left',
+                        'fade-right' => 'Fade Right',
+                        'fade-up-left' => 'Fade Up Left',
+                        'fade-up-right' => 'Fade Up Right',
+                        'fade-down-left' => 'Fade Down Left',
+                        'fade-down-right' => 'Fade Down Right',
+                        'zoom-in' => 'Zoom In',
+                        'zoom-out' => 'Zoom Out',
+                        'slide-up' => 'Slide Up',
+                        'slide-down' => 'Slide Down',
+                        'slide-left' => 'Slide Left',
+                        'slide-right' => 'Slide Right',
+                        'flip-left' => 'Flip Left',
+                        'flip-right' => 'Flip Right',
+                        'flip-up' => 'Flip Up',
+                        'flip-down' => 'Flip Down',
+                      ])
+                      ->default('fade-up')
+                      ->visibleJs(<<<'JS'
+                        $get('enable_category_animations')
+                        JS),
+                  ]),
+                
+                Section::make('Category Index Numbers')
+                  ->description('Show decorative index numbers next to category titles')
+                  ->schema([
+                    Toggle::make('show_category_index')
+                      ->label('Show Category Index Numbers')
+                      ->helperText('Enable to show index numbers (01, 02, 03...) next to category titles')
+                      ->default(false),
+                    
+                    Toggle::make('capitalize_category_names')
+                      ->label('Capitalize Category Names')
+                      ->helperText('Enable to display category names in uppercase')
+                      ->default(false),
+                  ]),
               ]),
           ]),
       ]);

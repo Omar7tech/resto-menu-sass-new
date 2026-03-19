@@ -50,7 +50,14 @@ class Menu extends Model implements HasMedia
         'is_logo_typography',
         'typography_logo_follow_primary_color',
         'font',
-        'is_category_bar_sticky'
+        'is_category_bar_sticky',
+        'is_category_title_bold',
+        'is_category_title_centered',
+        'is_category_title_custom_font',
+        'enable_category_animations',
+        'category_animation_type',
+        'show_category_index',
+        'capitalize_category_names'
     ];
 
     public function categories()
@@ -101,6 +108,13 @@ class Menu extends Model implements HasMedia
             'typography_logo_follow_primary_color' => 'boolean',
             'category_badge_color' => 'string',
             'is_category_bar_sticky' => 'boolean',
+            'is_category_title_bold' => 'boolean',
+            'is_category_title_centered' => 'boolean',
+            'is_category_title_custom_font' => 'boolean',
+            'enable_category_animations' => 'boolean',
+            'category_animation_type' => 'string',
+            'show_category_index' => 'boolean',
+            'capitalize_category_names' => 'boolean',
         ];
     }
 
