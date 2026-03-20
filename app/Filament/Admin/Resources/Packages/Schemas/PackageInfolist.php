@@ -19,7 +19,6 @@ class PackageInfolist
         return $schema
             ->components([
                 Tabs::make('Package Details')->columnSpanFull()
-                    ->persistTab()
                     ->id('package-infolist-tabs')
                     ->tabs([
                         Tab::make('Basic Information')
@@ -149,24 +148,24 @@ class PackageInfolist
                                             ->numeric()
                                             ->helperText('Lower numbers appear first'),
                                     ]),
+                            ]),
 
-                                Tab::make('System Information')
-                                    ->icon(Heroicon::Server)
+                        Tab::make('System Information')
+                            ->icon(Heroicon::Server)
+                            ->schema([
+                                Section::make('Timestamps')
+                                    ->description('System timestamps')
                                     ->schema([
-                                        Section::make('Timestamps')
-                                            ->description('System timestamps')
+                                        Grid::make(2)
                                             ->schema([
-                                                Grid::make(2)
-                                                    ->schema([
-                                                        TextEntry::make('created_at')
-                                                            ->label('Created On')
-                                                            ->dateTime(),
-                                                        TextEntry::make('updated_at')
-                                                            ->label('Last Updated')
-                                                            ->dateTime(),
-                                                    ]),
+                                                TextEntry::make('created_at')
+                                                    ->label('Created On')
+                                                    ->dateTime(),
+                                                TextEntry::make('updated_at')
+                                                    ->label('Last Updated')
+                                                    ->dateTime(),
                                             ]),
-                                    ])
+                                    ]),
                             ])
                     ])
             ]);

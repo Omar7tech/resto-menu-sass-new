@@ -7,16 +7,16 @@
     <div class="flex items-center justify-between h-16">
       
       <div class="flex items-center">
-        <a href="/" class="flex items-center space-x-3 group p-1 rounded-xl transition-all duration-300">
+        <a wire:navigate href="{{ url()->current() }}" class="flex items-center space-x-3 group p-1 rounded-xl transition-all duration-300">
           <x-menu.logo />
         </a>
       </div>
 
       <div class="hidden lg:flex items-center flex-1 justify-center">
         <div class="flex items-center space-x-8">
-          <x-menu.navbar.desktopLink href="/menu" text="Menu" />
-          <x-menu.navbar.desktopLink href="/about" text="About Us" />
-          <x-menu.navbar.desktopLink href="/contact" text="Contact" />
+          <x-menu.navbar.desktopLink href="{{ route('menuShow', $menu) }}" text="Menu" />
+          <x-menu.navbar.desktopLink href="{{ route('menuAbout', $menu) }}" text="About Us" />
+          <x-menu.navbar.desktopLink href="{{ route('menuContact', $menu) }}" text="Contact" />
         </div>
       </div>
 
@@ -57,9 +57,9 @@
          x-transition:leave-start="opacity-100 translate-y-0"
          x-transition:leave-end="opacity-0 -translate-y-2"
          class="lg:hidden border-t py-4 space-y-3">
-        <x-menu.navbar.mobileLink href="/menu" text="Menu" />
-        <x-menu.navbar.mobileLink href="/about" text="About Us" />
-        <x-menu.navbar.mobileLink href="/contact" text="Contact" />
+        <x-menu.navbar.mobileLink href="{{ route('menuShow', $menu) }}" text="Menu" />
+        <x-menu.navbar.mobileLink href="{{ route('menuAbout', $menu) }}" text="About Us" />
+        <x-menu.navbar.mobileLink href="{{ route('menuContact', $menu) }}" text="Contact" />
     </div>
   </div>
 </nav>

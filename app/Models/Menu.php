@@ -57,7 +57,10 @@ class Menu extends Model implements HasMedia
         'enable_category_animations',
         'category_animation_type',
         'show_category_index',
-        'capitalize_category_names'
+        'capitalize_category_names',
+        'category_title_custom_color',
+        'category_title_color',
+        'show_category_descriptions'
     ];
 
     public function categories()
@@ -115,6 +118,9 @@ class Menu extends Model implements HasMedia
             'category_animation_type' => 'string',
             'show_category_index' => 'boolean',
             'capitalize_category_names' => 'boolean',
+            'category_title_custom_color' => 'boolean',
+            'category_title_color' => 'string',
+            'show_category_descriptions' => 'boolean',
         ];
     }
 

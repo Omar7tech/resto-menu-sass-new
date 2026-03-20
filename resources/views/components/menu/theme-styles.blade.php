@@ -40,6 +40,30 @@
         color: rgb(var(--text-primary)) !important;
     }
 
+    /* Scrollbar styling with primary color */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: rgb(var(--bg-secondary));
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: {{ $primaryColor }};
+        border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: {{ $primaryColor }};
+    }
+
+    /* Firefox scrollbar */
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: {{ $primaryColor }} rgb(var(--bg-secondary));
+    }
+
     .category-badge {
         @if($menu && $menu->is_category_badge_follow_font)
             font-family: '{{ $selectedFont }}', sans-serif !important;

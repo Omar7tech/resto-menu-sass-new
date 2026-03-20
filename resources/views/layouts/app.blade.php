@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{{ $title ?? "Menu Engine Restuarant Menu" }}</title>
+    
     @if ($menu)
         <x-menu.menu-seo />
     @endif

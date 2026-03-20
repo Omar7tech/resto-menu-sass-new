@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Menu;
-use Livewire\Attributes\Title;
 use Livewire\Component;
 
 
@@ -12,6 +11,6 @@ new class extends Component {
     public function render()
     {
         return $this->view()
-            ->title($this->menu->meta_title ?? 'Menu - '.$this->menu->name);
+            ->title($this->menu->meta_title ? e($this->menu->meta_title) : 'Menu - ' . e($this->menu->name));
     }
 };

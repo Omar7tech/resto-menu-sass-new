@@ -3,8 +3,7 @@
 <footer data-aos="fade-up" class="mt-20 border-t border-[rgb(var(--border-secondary))] bg-[rgb(var(--bg-primary))] text-[rgb(var(--text-secondary))]">
   <div class="max-w-[1500px] mx-auto px-4 sm:px-5 lg:px-6 py-8" >
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      
-      <!-- Brand Section -->
+
       <div class="space-y-4">
         @if($menu)
           <x-menu.logo size="large" />
@@ -17,17 +16,15 @@
         @endif
       </div>
 
-      <!-- Quick Links -->
       <div class="space-y-4">
         <h3 class="font-semibold text-[rgb(var(--text-primary))] text-sm uppercase tracking-wider">Quick Links</h3>
         <nav class="space-y-2">
-          <a href="/menu" class="block text-sm hover:text-[rgb(var(--text-primary))] transition-colors duration-200">Menu</a>
-          <a href="/about" class="block text-sm hover:text-[rgb(var(--text-primary))] transition-colors duration-200">About Us</a>
-          <a href="/contact" class="block text-sm hover:text-[rgb(var(--text-primary))] transition-colors duration-200">Contact</a>
+          <a wire:navigate href="{{ route('menuShow', $menu) }}" class="block text-sm hover:text-[rgb(var(--text-primary))] transition-colors duration-200">Menu</a>
+          <a wire:navigate href="{{ route('menuAbout', $menu) }}" class="block text-sm hover:text-[rgb(var(--text-primary))] transition-colors duration-200">About Us</a>
+          <a wire:navigate href="{{ route('menuContact', $menu) }}" class="block text-sm hover:text-[rgb(var(--text-primary))] transition-colors duration-200">Contact</a>
         </nav>
       </div>
 
-      <!-- Contact Info -->
       <div class="space-y-4">
         <h3 class="font-semibold text-[rgb(var(--text-primary))] text-sm uppercase tracking-wider">Contact</h3>
         <div class="space-y-2 text-sm">
@@ -54,7 +51,6 @@
       </div>
     </div>
 
-    <!-- Bottom Bar -->
     <div class="border-t border-[rgb(var(--border-secondary))] mt-8 pt-6">
       <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
         <p class="text-sm text-[rgb(var(--text-secondary))]">

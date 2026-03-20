@@ -10,4 +10,6 @@ Route::get('/', function () {
 
 Route::middleware(['identify.menu'])->group(function () {
     Route::livewire('/menu/{menu}', 'pages::menu.show')->name('menuShow');
+    Route::livewire('/menu/{menu}/about', 'pages::menu.about')->name('menuAbout');
+    Route::livewire('/menu/{menu}/contact', 'pages::menu.contact')->name('menuContact');
 });

@@ -168,7 +168,11 @@ class EditThemeAndDesign extends EditRecord
                         !$get('is_category_badge_follow_primary_color')
                         JS),
                   ]),
-                
+              ]),
+
+            Tab::make('Category Titles')
+              ->icon(Heroicon::DocumentText)
+              ->schema([
                 Section::make('Category Title Design')
                   ->description('Configure how category titles are displayed')
                   ->schema([
@@ -188,7 +192,53 @@ class EditThemeAndDesign extends EditRecord
                       ->default(true),
                   ]),
                 
-                Section::make('Category Animations')
+                Section::make('Category Title Effects')
+                  ->description('Configure special effects for category titles')
+                  ->schema([
+                    Toggle::make('show_category_index')
+                      ->label('Show Category Index Numbers')
+                      ->helperText('Enable to show index numbers (01, 02, 03...) next to category titles')
+                      ->default(false),
+                    
+                    Toggle::make('capitalize_category_names')
+                      ->label('Capitalize Category Names')
+                      ->helperText('Enable to display category names in uppercase')
+                      ->default(false),
+                  ]),
+                
+                Section::make('Category Title Color')
+                  ->description('Configure custom color for category titles')
+                  ->schema([
+                    Toggle::make('category_title_custom_color')
+                      ->label('Use Custom Title Color')
+                      ->helperText('Enable to use custom color for category titles instead of theme colors')
+                      ->default(false)
+                      ->live(),
+                    
+                    ColorPicker::make('category_title_color')
+                      ->label('Title Color')
+                      ->helperText('Choose custom color for category titles')
+                      ->hex()
+                      ->default('#8B5CF6')
+                      ->visibleJs(<<<'JS'
+                        $get('category_title_custom_color')
+                        JS),
+                  ]),
+                
+                Section::make('Category Descriptions')
+                  ->description('Configure category description display')
+                  ->schema([
+                    Toggle::make('show_category_descriptions')
+                      ->label('Show Category Descriptions')
+                      ->helperText('Enable to display category descriptions below category titles')
+                      ->default(false),
+                  ]),
+              ]),
+
+            Tab::make('Category Animations')
+              ->icon(Heroicon::Sparkles)
+              ->schema([
+                Section::make('Animation Settings')
                   ->description('Configure animation effects for category sections')
                   ->schema([
                     Toggle::make('enable_category_animations')
@@ -227,20 +277,6 @@ class EditThemeAndDesign extends EditRecord
                       ->visibleJs(<<<'JS'
                         $get('enable_category_animations')
                         JS),
-                  ]),
-                
-                Section::make('Category Index Numbers')
-                  ->description('Show decorative index numbers next to category titles')
-                  ->schema([
-                    Toggle::make('show_category_index')
-                      ->label('Show Category Index Numbers')
-                      ->helperText('Enable to show index numbers (01, 02, 03...) next to category titles')
-                      ->default(false),
-                    
-                    Toggle::make('capitalize_category_names')
-                      ->label('Capitalize Category Names')
-                      ->helperText('Enable to display category names in uppercase')
-                      ->default(false),
                   ]),
               ]),
           ]),
