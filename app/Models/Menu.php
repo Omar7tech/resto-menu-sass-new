@@ -60,7 +60,9 @@ class Menu extends Model implements HasMedia
         'capitalize_category_names',
         'category_title_custom_color',
         'category_title_color',
-        'show_category_descriptions'
+        'show_category_descriptions',
+        'enable_aboutus',
+        'aboutus_content'
     ];
 
     public function categories()
@@ -121,6 +123,8 @@ class Menu extends Model implements HasMedia
             'category_title_custom_color' => 'boolean',
             'category_title_color' => 'string',
             'show_category_descriptions' => 'boolean',
+            'enable_about_us' => 'boolean',
+            'aboutus_content' => 'string',
         ];
     }
 

@@ -15,7 +15,9 @@
       <div class="hidden lg:flex items-center flex-1 justify-center">
         <div class="flex items-center space-x-8">
           <x-menu.navbar.desktopLink href="{{ route('menuShow', $menu) }}" text="Menu" />
-          <x-menu.navbar.desktopLink href="{{ route('menuAbout', $menu) }}" text="About Us" />
+          @if($menu && $menu->enable_aboutus)
+            <x-menu.navbar.desktopLink href="{{ route('menuAbout', $menu) }}" text="About Us" />
+          @endif
           <x-menu.navbar.desktopLink href="{{ route('menuContact', $menu) }}" text="Contact" />
         </div>
       </div>
@@ -58,7 +60,9 @@
          x-transition:leave-end="opacity-0 -translate-y-2"
          class="lg:hidden border-t py-4 space-y-3">
         <x-menu.navbar.mobileLink href="{{ route('menuShow', $menu) }}" text="Menu" />
-        <x-menu.navbar.mobileLink href="{{ route('menuAbout', $menu) }}" text="About Us" />
+        @if($menu && $menu->enable_aboutus)
+          <x-menu.navbar.mobileLink href="{{ route('menuAbout', $menu) }}" text="About Us" />
+        @endif
         <x-menu.navbar.mobileLink href="{{ route('menuContact', $menu) }}" text="Contact" />
     </div>
   </div>

@@ -20,7 +20,9 @@
         <h3 class="font-semibold text-[rgb(var(--text-primary))] text-sm uppercase tracking-wider">Quick Links</h3>
         <nav class="space-y-2">
           <a wire:navigate href="{{ route('menuShow', $menu) }}" class="block text-sm hover:text-[rgb(var(--text-primary))] transition-colors duration-200">Menu</a>
-          <a wire:navigate href="{{ route('menuAbout', $menu) }}" class="block text-sm hover:text-[rgb(var(--text-primary))] transition-colors duration-200">About Us</a>
+          @if($menu && $menu->enable_aboutus)
+            <a wire:navigate href="{{ route('menuAbout', $menu) }}" class="block text-sm hover:text-[rgb(var(--text-primary))] transition-colors duration-200">About Us</a>
+          @endif
           <a wire:navigate href="{{ route('menuContact', $menu) }}" class="block text-sm hover:text-[rgb(var(--text-primary))] transition-colors duration-200">Contact</a>
         </nav>
       </div>

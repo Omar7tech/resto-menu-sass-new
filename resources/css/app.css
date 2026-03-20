@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import 'tailwindcss';
+@plugin "@tailwindcss/typography";
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
@@ -74,6 +75,28 @@ html[data-theme="dark"] {
 
 .category-swiper .swiper-slide:last-child {
   margin-right: 16px;
+}
+
+/* About Us page prose styling */
+.about-us-prose h1,
+.about-us-prose h2,
+.about-us-prose h3,
+.about-us-prose h4,
+.about-us-prose h5,
+.about-us-prose h6 {
+  color: rgb(var(--primary-color)) !important;
+}
+
+.about-us-prose p,
+.about-us-prose li,
+.about-us-prose span,
+.about-us-prose div {
+  color: rgb(var(--text-primary)) !important;
+}
+
+.about-us-prose strong,
+.about-us-prose b {
+  color: rgb(var(--text-primary)) !important;
 }
 
 /* Desktop padding */
