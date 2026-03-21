@@ -1,4 +1,6 @@
 <div>
+    
+    <x-menu.hero.main1 />
     <x-menu.categories.bar />
     <div class="px-5 mt-10">
 

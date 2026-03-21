@@ -1,7 +1,11 @@
 <nav class="fixed top-0 w-full z-50 backdrop-blur-xl" 
      x-data="{ open: false }" 
      @keydown.escape.window="open = false"
-     style="background-color: rgb(var(--bg-primary) / 0.8);">
+     @if($menu && $menu->has_custom_background)
+       style="background-color: rgb(var(--bg-primary) / 0.7);"
+     @else
+       style="background-color: rgb(var(--bg-primary) / 0.8);"
+     @endif>
   
   <div class="max-w-[1500px] mx-auto px-4 sm:px-5 lg:px-6">
     <div class="flex items-center justify-between h-16">

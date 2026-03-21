@@ -62,7 +62,11 @@ class Menu extends Model implements HasMedia
         'category_title_color',
         'show_category_descriptions',
         'enable_aboutus',
-        'aboutus_content'
+        'aboutus_content',
+        'show_logo_in_hero',
+        'has_custom_background',
+        'background_source',
+        'background_image_url'
     ];
 
     public function categories()
@@ -125,6 +129,10 @@ class Menu extends Model implements HasMedia
             'show_category_descriptions' => 'boolean',
             'enable_about_us' => 'boolean',
             'aboutus_content' => 'string',
+            'show_logo_in_hero' => 'boolean',
+            'has_custom_background' => 'boolean',
+            'background_source' => 'string',
+            'background_image_url' => 'string',
         ];
     }
 

@@ -35,9 +35,11 @@
     @livewireStyles
 </head>
 
-<body class="font-poppins bg-primary text-primary">
+<body class="font-poppins @if($menu && $menu->has_custom_background) bg-transparent @else bg-primary @endif text-primary">
+    <x-menu.background.main1 :menu="$menu" />
+
     <x-menu.navbar.main1 />
-    <main class="max-w-[2000px] mx-auto bg-primary text-primary mt-20">
+    <main class="max-w-[2000px] mx-auto @if($menu && $menu->has_custom_background) bg-transparent @else bg-primary @endif text-primary mt-20">
         {{ $slot }}
     </main>
     <x-menu.footer />

@@ -1,5 +1,5 @@
 @props(["name" => null, "index" => null, "description" => null])
-<h1 class="p-4 sm:p-6 leading-[0.8] {{ $menu->is_category_title_bold ? 'font-bold' : 'font-light' }} {{ $menu->is_category_title_custom_font && $menu->have_customized_font ? '' : 'font-poppins' }} {{ $menu->category_title_custom_color ? '' : 'text-primary-color dark:text-primary-color' }} wrap-break-word text-[clamp(3rem,7vw,5rem)]" @if($menu->category_title_custom_color && $menu->category_title_color) style="color: {{ $menu->category_title_color }}" @endif>
+<h1 class="p-4 sm:p-6 leading-[0.80] {{ $menu->is_category_title_bold ? 'font-bold' : 'font-light' }} {{ $menu->is_category_title_custom_font && $menu->have_customized_font ? '' : 'font-poppins' }} {{ $menu->category_title_custom_color ? '' : 'text-primary-color dark:text-primary-color' }} wrap-break-word text-[clamp(3rem,7vw,5rem)]" @if($menu->category_title_custom_color && $menu->category_title_color) style="color: {{ $menu->category_title_color }}" @endif>
   <div class="{{ $menu->is_category_title_centered ? 'flex items-start justify-center gap-2' : 'flex items-start gap-2' }}">
     <span class="line-clamp-2 {{ $menu->capitalize_category_names ? 'uppercase' : '' }}">{{ $name }}</span>
     @if($menu->show_category_index && $index)
@@ -7,7 +7,7 @@
     @endif
   </div>
   @if($menu->show_category_descriptions && $description)
-    <p class="mt-2 text-lg text-gray-500 font-normal {{ $menu->is_category_title_centered ? 'text-center' : '' }} {{ $menu->is_category_title_custom_font && $menu->have_customized_font ? '' : 'font-poppins' }}">
+    <p class="mt-2 text-lg sm:text-lg md:text-2xl text-gray-500 font-normal {{ $menu->is_category_title_centered ? 'text-center' : '' }} {{ $menu->is_category_title_custom_font && $menu->have_customized_font ? '' : 'font-poppins' }}">
       {{ $description }}
     </p>
   @endif

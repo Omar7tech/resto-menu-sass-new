@@ -8,6 +8,7 @@ use BackedEnum;
 use CharlieEtienne\FilamentFontPicker\FontPicker;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
@@ -78,6 +79,14 @@ class EditThemeAndDesign extends EditRecord
                       ->downloadable()
                       ->openable()
                       ->conversion('logo'),
+                    
+                    Toggle::make('show_logo_in_hero')
+                      ->label('Show Logo In Hero')
+                      ->helperText('Display logo in hero section when Use Text Logo is disabled')
+                      ->default(false)
+                      ->visibleJs(<<<'JS'
+                        !$get('is_logo_typography')
+                        JS),
                   ]),
               ]),
 
@@ -95,6 +104,50 @@ class EditThemeAndDesign extends EditRecord
                       ->label('Dark Mode')
                       ->helperText('Enable dark mode for this menu')
                       ->default(false),
+                  ]),
+                
+                Section::make('Background Image')
+                  ->description('Configure custom background image')
+                  ->schema([
+                    Toggle::make('has_custom_background')
+                      ->label('Enable Custom Background')
+                      ->helperText('Enable to use custom background image')
+                      ->default(false)
+                      ->live(),
+                    
+                    Radio::make('background_source')
+                      ->label('Background Source')
+                      ->options([
+                        'upload' => 'Upload Image',
+                        'external' => 'External URL',
+                      ])
+                      ->default('upload')
+                      ->visibleJs(<<<'JS'
+                        $get('has_custom_background')
+                        JS)
+                      ->live(),
+                    
+                    SpatieMediaLibraryFileUpload::make('background_image')
+                      ->label('Background Image')
+                      ->helperText('Upload background image')
+                      ->collection('background')
+                      ->disk('public')
+                      ->visibility('public')
+                      ->image()
+                      ->imageEditor()
+                      ->visibleJs(<<<'JS'
+                        $get('has_custom_background') && $get('background_source') === 'upload'
+                        JS)
+                      ->downloadable()
+                      ->openable(),
+                    
+                    TextInput::make('background_image_url')
+                      ->label('Background Image URL')
+                      ->helperText('Enter external image URL')
+                      ->url()
+                      ->visibleJs(<<<'JS'
+                        $get('has_custom_background') && $get('background_source') === 'external'
+                        JS),
                   ]),
               ]),
 
