@@ -4,8 +4,79 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "071cb668e5306127881f3c823df3a2aa",
+    "content-hash": "076d9e23d3ea71b3784cffbe931e6adb",
     "packages": [
+        {
+            "name": "alkoumi/filament-image-radio-button",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alkoumi/filament-image-radio-button.git",
+                "reference": "83a1fc0e614e31be4b03a1fa7e7d9a2dacad2e43"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alkoumi/filament-image-radio-button/zipball/83a1fc0e614e31be4b03a1fa7e7d9a2dacad2e43",
+                "reference": "83a1fc0e614e31be4b03a1fa7e7d9a2dacad2e43",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0|^4.0|^5.0",
+                "livewire/livewire": "^3.0|^4.0",
+                "php": "^8.2|^8.3|^8.4",
+                "spatie/laravel-package-tools": "^1.15.0"
+            },
+            "require-dev": {
+                "nunomaduro/collision": "*",
+                "orchestra/testbench": "^9.0|^10.0|^11.0",
+                "pestphp/pest": "^2.0|^3.0|^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Alkoumi\\FilamentImageRadioButton\\FilamentImageRadioButtonServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Alkoumi\\FilamentImageRadioButton\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohamed alkoumi",
+                    "email": "mohammedelkoumi@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Filament Form Radio Button But With Images",
+            "homepage": "https://github.com/alkoumi/filament-image-radio-button",
+            "keywords": [
+                "alkoumi",
+                "filament",
+                "filament-image-radio-button",
+                "image-radio-button",
+                "image-select",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/alkoumi/filament-image-radio-button/issues",
+                "source": "https://github.com/alkoumi/filament-image-radio-button"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/alkoumi",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-01-22T14:42:49+00:00"
+        },
         {
             "name": "blade-ui-kit/blade-heroicons",
             "version": "2.7.0",

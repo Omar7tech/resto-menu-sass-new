@@ -3,3 +3,4 @@
 @source '../../../../app/Filament/Admin/**/*';
 @source '../../../../resources/views/filament/admin/**/*';
 @source '../../../../vendor/charlieetienne/filament-font-picker/resources/**/*.blade.php';
+@source '../../../../vendor/alkoumi/filament-image-radio-button/resources/views/**/*.blade.php';

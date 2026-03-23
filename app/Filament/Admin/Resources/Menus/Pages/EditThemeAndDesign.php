@@ -8,6 +8,7 @@ use BackedEnum;
 use CharlieEtienne\FilamentFontPicker\FontPicker;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
+use Alkoumi\FilamentImageRadioButton\Forms\Components\ImageRadioGroup;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
@@ -188,9 +189,15 @@ class EditThemeAndDesign extends EditRecord
                       ->helperText('Enable to show borders around category badges for better definition')
                       ->default(true),
                     
-                    Toggle::make('is_category_badge_rounded_full')
-                      ->label('Full Rounded Category Badges')
-                      ->helperText('Enable for fully rounded badges, disable for slightly rounded badges')
+                    ImageRadioGroup::make('is_category_badge_rounded_full')
+                      ->label('Category Badge Style')
+                      ->helperText('Choose the badge style')
+                      ->disk('public')
+                      ->options([
+                        false => 'images/category-bar/normal.jpg',
+                        true => 'images/category-bar/rounded.jpg',
+                      ])
+                      ->gridColumns(2)
                       ->default(true),
                   ]),
                 

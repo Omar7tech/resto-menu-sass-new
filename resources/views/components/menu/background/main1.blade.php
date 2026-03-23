@@ -1,11 +1,3 @@
-@props(['menu' => null])
-
-{{-- 
-CONDITIONS FOR BACKGROUND DISPLAY:
-1. Menu must exist
-2. has_custom_background must be true
-3. Background image must exist (either uploaded or external URL)
---}}
 
 @if($menu && $menu->has_custom_background)
     @php
@@ -21,7 +13,7 @@ CONDITIONS FOR BACKGROUND DISPLAY:
                 class="w-full h-full object-cover"
             />
             {{-- Lighter overlay for better visibility --}}
-            <div class="absolute inset-0 bg-black/20"></div>
+            <div class="absolute inset-0" style="background-color: rgb(var(--bg-primary) / 0.95);"></div>
         </div>
     @endif
 @endif

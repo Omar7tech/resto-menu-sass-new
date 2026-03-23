@@ -54,7 +54,8 @@ class MenuResource extends Resource
             'edit' => EditMenu::route('/{record}/edit'),
             'manage-menu-seo' => Pages\EditMenuSeo::route('/{record}/edit/seo'),
             'manage-theme-and-design' => Pages\EditThemeAndDesign::route('/{record}/edit/theme-and-design'),
-            'manage-about-us-page' => Pages\EditAboutUsPage::route('/{record}/edit/about-us')
+            'manage-about-us-page' => Pages\EditAboutUsPage::route('/{record}/edit/about-us'),
+            'manage-social-settings' => Pages\ManageSocialSettings::route('{record}/edit/social-settings')
         ];
     }
 
@@ -66,7 +67,8 @@ class MenuResource extends Resource
             ListCategories::class,
             Pages\EditMenuSeo::class,
             Pages\EditThemeAndDesign::class,
-            Pages\EditAboutUsPage::class
+            Pages\EditAboutUsPage::class,
+            Pages\ManageSocialSettings::class
         ]);
     }
 
