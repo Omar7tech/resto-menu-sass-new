@@ -81,13 +81,19 @@ class EditThemeAndDesign extends EditRecord
                       ->openable()
                       ->conversion('logo'),
                     
-                    Toggle::make('show_logo_in_hero')
-                      ->label('Show Logo In Hero')
-                      ->helperText('Display logo in hero section when Use Text Logo is disabled')
-                      ->default(false)
+                    ImageRadioGroup::make('show_logo_in_hero')
+                      ->label('Logo In Hero')
+                      ->helperText('Choose whether to display logo in hero section')
+                      ->disk('public-direct')
+                      ->options([
+                        false => 'images/hero-logo/without-hero.png',
+                        true => 'images/hero-logo/with-hero.png',
+                      ])
+                      ->gridColumns(3)
                       ->visibleJs(<<<'JS'
                         !$get('is_logo_typography')
-                        JS),
+                        JS)
+                      ->default(false),
                   ]),
               ]),
 
@@ -97,14 +103,22 @@ class EditThemeAndDesign extends EditRecord
                 Section::make('Theme Configuration')
                   ->description('Configure colors and theme settings')
                   ->schema([
+                    ImageRadioGroup::make('dark_mode')
+                      ->label('Theme Mode')
+                      ->helperText('Choose between light and dark theme')
+                      ->disk('public-direct')
+                      ->options([
+                        false => 'images/theme/light.jpg',
+                        true => 'images/theme/dark.jpg',
+                      ])
+                      ->gridColumns(3)
+                      ->live()
+                      ->default(false),
+                    
                     ColorPicker::make('primary_color')
                       ->label('Primary Color')
                       ->helperText('Main color for your menu theme')
                       ->hex(),
-                    Toggle::make('dark_mode')
-                      ->label('Dark Mode')
-                      ->helperText('Enable dark mode for this menu')
-                      ->default(false),
                   ]),
                 
                 Section::make('Background Image')
@@ -158,18 +172,25 @@ class EditThemeAndDesign extends EditRecord
                 Section::make('Font Settings')
                   ->description('Configure typography and fonts')
                   ->schema([
-                    Toggle::make('have_customized_font')
+                    ImageRadioGroup::make('have_customized_font')
                       ->label('Use Custom Font')
-                      ->helperText('Enable to choose a custom font for this menu')
-                      ->default(false)
-                      ->live(),
+                      ->helperText('Choose whether to use a custom font for this menu')
+                      ->disk('public-direct')
+                      ->options([
+                        false => 'images/google-fonts/no.png',
+                        true => 'images/google-fonts/yes.png',
+                      ])
+                      
+                      ->gridColumns(2)
+                      ->live()
+                      ->reactive()
+                      ->default(false),
                     
                     FontPicker::make('font')
                       ->label('Choose Font')
                       ->helperText('Select a custom font for your menu')
-                      ->visibleJs(<<<'JS'
-                        $get('have_customized_font')
-                        JS),
+                      ->live()
+                      ->visible(fn ($get) => $get('have_customized_font')),
                   ]),
               ]),
 
@@ -192,12 +213,15 @@ class EditThemeAndDesign extends EditRecord
                     ImageRadioGroup::make('is_category_badge_rounded_full')
                       ->label('Category Badge Style')
                       ->helperText('Choose the badge style')
-                      ->disk('public')
+                      ->disk('public-direct')
+                      ->gridColumns(4)  
+                      ->live()
                       ->options([
                         false => 'images/category-bar/normal.jpg',
                         true => 'images/category-bar/rounded.jpg',
                       ])
                       ->gridColumns(2)
+                      ->columnSpan(1)
                       ->default(true),
                   ]),
                 
