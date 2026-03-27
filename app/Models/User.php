@@ -10,13 +10,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Saade\FilamentFacehash\Concerns\HasFacehashAvatar;
-
-
+use App\Models\Scopes\UserScope;
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable , HasUlids;
     use HasFacehashAvatar;
 
     /**
@@ -32,7 +32,6 @@ class User extends Authenticatable
         'email_verified_at',
         'password',
         'remember_token',
-        'is_active'
     ];
 
     /**
@@ -56,7 +55,6 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
             'role' => UserRole::class,
-            'is_active' => 'boolean'
         ];
     }
 
@@ -65,11 +63,16 @@ class User extends Authenticatable
         return $this->hasMany(Menu::class);
     }
 
+    /**
+     * Get the attribute used as the facehash avatar name.
+     *
+     * @return Attribute The accessor that exposes this user's `name` for the facehash avatar.
+     */
     public function facehashAvatarName(): Attribute
     {
         return new Attribute(
-            get: fn() => $this->name
+            get: fn () => $this->name  
         );
     }
-
+   
 }
